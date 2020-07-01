@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .see {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+    overflow: hidden;
+    border: 2px solid blue;
+    z-index: 999;
+  }
+
+  .game {
+    width: 330px;
+    height: 490px;
+    position: absolute;
+    top: -220px;
+    left: 0;
+
+  }
+
+  .game .item {
+    width: 330px;
+    height: 80px;
+  }
+
+  .game .item .item-list {
+    width: 80px;
+    height: 80px;
+    float: left;
+    border: 1px solid black;
+  }
+
+  .black {
+    background-color: black;
+  }
+</style>
+
+<body>
+  <input type="text" class="score" value=0 disabled="true">
+  <div class="see">
+    <div class="game">
+      <div class="item">
+        <div class="item-list"></div>
+        <div class="item-list"></div>
+        <div class="item-list black"></div>
+        <div class="item-list"></div>
+      </div>
+      <div class="item">
+        <div class="item-list"></div>
+        <div class="item-list black"></div>
+        <div class="item-list"></div>
+        <div class="item-list"></div>
+      </div>
+      <div class="item">
+        <div class="item-list black"></div>
+        <div class="item-list"></div>
+        <div class="item-list"></div>
+        <div class="item-list"></div>
+      </div>
+      <div class="item">
+        <div class="item-list"></div>
+        <div class="item-list"></div>
+        <div class="item-list"></div>
+        <div class="item-list black"></div>
+      </div>
+      <div class="item">
+        <div class="item-list"></div>
+        <div class="item-list"></div>
+        <div class="item-list black"></div>
+        <div class="item-list"></div>
+      </div>
+      <div class="item">
+        <div class="item-list"></div>
+        <div class="item-list"></div>
+        <div class="item-list"></div>
+        <div class="item-list black"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var game = document.querySelector(".game");
+    var item = document.querySelectorAll(".item");
+    var item_list = document.querySelectorAll(".item-list");
+    var score = document.querySelector(".score");
+    var sum = 0;
+    var speed = 1;
+    var res = false;
+
+
+
+    var timer = window.setInterval(function () {
+      game.style.top = game.offsetTop + speed + "px";
+      if (game.offsetTop >= -80) {
+
+        if (game.lastElementChild.getAttribute("pass") == null) {
+          alert("游戏结束");
+          window.clearInterval(timer);
+          return;
+        }
+        var Div = document.createElement("div");
+        var num = Math.floor(Math.random() * (4 - 0) + 0);
+        Div.className = "item";
+        for (var j = 0; j < 4; j++) {
+          var div = document.createElement('div');
+          div.className = "item-list";
+          Div.appendChild(div);
+        }
+
+        Div.children[num].className = Div.children[num].className + " black";
+        game.style.top = -160 + "px";
+        game.insertBefore(Div, game.children[0]);
+
+        if (item.length == 6) {
+          game.removeChild(game.children[game.children.length - 1]);
+        }
+      }
+
+    }, 50);
+
+
+    game.onclick = function (e) {
+      var e = e || window.event;
+      if (res) {
+        alert("游戏结束");
+      } else {
+        if (e.target.className == "item-list black") {
+          e.target.className = "item-list";
+          sum++;
+          score.value = sum;
+          if (sum % 5 == 0) {
+            speed +=1;
+          }
+          e.target.parentNode.setAttribute("pass", true);
+
+        } else {
+          alert("游戏结束");
+          window.clearInterval(timer);
+          res = true;
+        }
+      }
+    }
+
+
+
+  </script>
+</body>
+
+</html>
