@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  float: left;
+  cursor: pointer;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.bg {
+  width: 100%;
+  height: 600px;
+  background: url(./images/banner.png);
+}
+
+.tabbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  padding: 20px 0;
+  img {
+    margin-top: 10px;
+    margin-left: 100px;
+    cursor: pointer;
+  }
+  .c-nav {
+    float: right;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    :hover{
+      color: red;
+    }
+    li {
+      margin-right: 20px;
+    }
+  }
+}
+.c-tabbar{
+  .dropdown{
+    float: right;
+    margin-top: 30px;
+    margin-right: 20%;
+    .c-dropdown-menu{
+      width: 100%;
+    }
+  }
+
+}
+
+.project {
+  background-color: rgb(204, 204, 204);
+  h2 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    .s-photo {
+      width: 100%;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 1px 1px 10px #352e2e;
+      border-radius: 10px;
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+      p {
+        margin-top: 10px;
+        height: 55px;
+      }
+    }
+  }
+  a {
+    display: inline-block;
+    padding: 12px 18px;
+    color: white;
+    background-color: rgb(139, 0, 0);
+    margin: 30px 0 50px 45%;
+  }
+}
+
+.about {
+  h2 {
+    margin: 30px 45%;
+  }
+  .txt {
+    text-align: center;
+  }
+  .us {
+    width: 120px;
+    height: 120px;
+    margin: 30px auto;
+    text-align: center;
+    padding-top: 35px;
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px #352e2e;
+    span {
+      color: rgb(139, 0, 0);
+      font-size: 25px;
+    }
+  }
+}
+
+.believe {
+  background-color: rgb(240, 240, 240);
+  padding: 20px 0;
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .box {
+    overflow: hidden;
+    margin: 0 auto;
+    ul {
+      overflow: hidden;
+      li {
+        width: 20%;
+        text-align: center;
+        img {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
+
+.what {
+  padding: 20px 0;
+  h2 {
+    text-align: center
+  }
+  p {
+    text-align: center;
+  }
+  .logo {
+    text-align: center;
+    p {
+      margin-top: 10px;
+    }
+  }
+  .link{
+    overflow: hidden;
+    padding-left: 30px;
+    margin-top: 30px;
+    li{
+      line-height: 30px;
+      a{
+        color: black;
+        display: block;
+      }
+    }
+  }
+}
+.foot{
+  background-color: rgb(204,204,204);
+  text-align: center;
+  padding: 30px 0;
+  img{
+    margin: 20px 0;
+  }
+}
