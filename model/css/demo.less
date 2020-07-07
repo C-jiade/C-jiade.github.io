@@ -15,8 +15,8 @@ a:link {
 .head {
   .top {
     .logo {
-      padding: 10px 0;
-      a {
+      padding: 10px 15px;
+      .models {
         float: left;
         display: initial;
         font-weight: 700;
@@ -51,47 +51,64 @@ a:link {
     }
   }
   .c-top {
-    .dropdown {
-      margin-top: 10px;
-      button{
-        margin-left: 50%;
-      }
-      .c-dropdown-menu {
-        width: 100%;
-        top: 150% !important;
-        text-align: center;
-        letter-spacing: 1px;
-        background-color: white;
-        font-size: 16px;
-        color: black;
+    .logo {
+      .navbar {
+        margin-bottom: 0;
         border: none;
-        li {
-          float: none;
-          line-height: 30px;
-          margin-top: 10px;
-        }
+      }
+      .navbar-default {
+        background-color: none !important;
+        border-color: none !important;
+      }
+      li {
+        float: none;
+        text-align: center;
       }
     }
   }
   .bg {
-    background-image: url("../images/1.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding: 200px 0;
+    .carousel-indicators {
+      width: auto;
+      margin-left: 0 !important;
+      left: 45%;
+      @media (min-width: 768px) {
+        left: 47%;
+      }
+      li {
+        margin: 0 10px;
+      }
+    }
+    .item {
+      height: 300px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      @media (min-width: 992px) {
+        height: 500px;
+      }
+      &:nth-of-type(1) {
+        background-image: url("../images/1.jpg");
+      }
+      &:nth-of-type(2) {
+        background-image: url("../images/2.jpg");
+      }
+      &:nth-of-type(3) {
+        background-image: url("../images/4.jpg");
+      }
+    }
     .txt {
       .s-txt {
         float: right;
         max-width: 560px;
         text-align: right;
         h5 {
-          font-size: 22px;
+          font-size: 16px;
           color: white;
         }
         h3 {
           font-weight: 700;
           color: white;
-          font-size: 3.5em;
+          font-size: 25px;
         }
         p {
           padding: 12px 25px;
@@ -117,11 +134,14 @@ a:link {
 .welcome {
   padding: 50px 0 0 0;
   .c-txt {
-    max-width: 570px;
     margin-top: 100px;
     p {
       font-size: 40px;
       letter-spacing: 1px;
+      text-align: center;
+      @media (min-width: 992px) {
+        text-align: left;
+      }
     }
     h4 {
       font-size: 22px;
@@ -129,9 +149,14 @@ a:link {
       font-family: initial;
       color: #464646;
       letter-spacing: 1px;
+      text-align: center;
+      @media (min-width: 992px) {
+        text-align: left;
+      }
     }
     .bottom {
       margin-top: 50px;
+      text-align: center;
       .icon {
         span {
           font-size: 28px;
@@ -274,7 +299,7 @@ a:link {
   background-position: center;
   background-size: cover;
   color: white;
-  padding: 100px 0 250px 0;
+  padding: 10% 0;
   .look {
     font-size: 26px;
     color: rgba(255, 255, 255, 0.35);
@@ -359,6 +384,7 @@ a:link {
       font-size: 15px;
       border-radius: 0.25rem;
       width: 100%;
+      margin: 10px 0;
     }
     .c-submit {
       background: #38d2fe;
@@ -370,6 +396,7 @@ a:link {
       cursor: pointer;
       padding: 15px;
       width: 100%;
+      margin: 10px 0;
     }
   }
 }
@@ -522,6 +549,32 @@ a:link {
       font-size: 16px;
       color: #999;
       letter-spacing: 2px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .head {
+    .bg {
+      .item {
+        .txt {
+          .s-txt {
+            h5 {
+              font-size: 22px;
+            }
+            h3 {
+              font-size: 3.5em;
+            }
+          }
+        }
+      }
+    }
+  }
+  .welcome {
+    .c-txt {
+      .bottom {
+        text-align: left;
+      }
     }
   }
 }
