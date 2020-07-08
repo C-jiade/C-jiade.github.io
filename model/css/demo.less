@@ -74,8 +74,12 @@ a:link {
       @media (min-width: 768px) {
         left: 47%;
       }
+      .active{
+        background-color: red;
+      }
       li {
         margin: 0 10px;
+        border: 3px solid white;
       }
     }
     .item {
@@ -338,15 +342,29 @@ a:link {
     }
   }
   .picture {
-    img {
+    .img {
       cursor: pointer;
+      width: 70%;
+      margin-top: 30px;
+      @media (min-width: 992px) {
+        width: 100%;
+      }
+    }
+    img{
       width: 100%;
     }
   }
   .c-picture {
     margin-top: 30px;
-    img {
+    .img {
       cursor: pointer;
+      width: 70%;
+      margin-top: 30px;
+      @media (min-width: 992px) {
+        width: 100%;
+      }
+    }
+    img{
       width: 100%;
     }
   }
