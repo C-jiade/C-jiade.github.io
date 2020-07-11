@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html ondragstart="return false">
+	<!-- 禁止拖拽 -->
+	<head>
+		<meta charset="utf-8">
+		<title>3D旋转相册</title>
+		
+	</head>
+	<style type="text/css">
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		html{
+			height: 100%;
+		}
+
+		body {
+			height: 100%;
+			/* background: url(images/love.jpg) no-repeat; */
+			background: linear-gradient(#A9A9A9, #6495ED);
+			background-size: cover;
+			overflow: hidden;
+			
+		}
+
+		li {
+			list-style: none;
+		}
+
+		.jingshen {
+			/*景深：photo到jingshen之间的距离，只对3D元素有效*/
+			perspective: 800px;
+		}
+
+		#photo {
+			position: relative;
+			width: 133px;
+			height: 200px;
+			margin: 150px auto;
+			/*设置3D场景，设完后该元素会被有3D效果的属性影响*/
+			transform-style: preserve-3d;
+			transform: rotateX(-20deg);
+		}
+
+		#photo .text {
+			text-align: center;
+			font-family: STXingkai;
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			top: -40px;
+			left: 50%;
+			margin-left: -150px;
+			background-image: -webkit-linear-gradient(left, blue, #66ffff 10%, #cc00ff 20%, #CC00CC 30%, #CCCCFF 40%, #00FFFF 50%, #CCCCFF 60%, #CC00CC 70%, #CC00FF 80%, #66FFFF 90%, blue 100%);
+			-webkit-text-fill-color: transparent;
+			/* 将字体设置成透明色 */
+			-webkit-background-clip: text;
+			font-size: 2.5em;
+		}
+
+		#photo li {
+			position: absolute;
+			/*倒影效果*/
+			-webkit-box-reflect: below 5px -webkit-linear-gradient(top, rgba(0, 0, 0, 0)30%, rgba(0, 0, 0, .5)100%);
+			/*阴影*/
+			box-shadow: 0 0 10px #FF00FF;
+			width: 120px;
+			height: 150px;
+			overflow: hidden;
+		}
+
+		#photo .xianyu {
+			text-align: center;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			font-size: 15px;
+			/* top: -150px; */
+			transform: scale(0);/*向中间缩放*/
+			left: 0;
+			color: white;
+			transition: all 1s;
+			background: rgba(0, 0, 0, 0.2);
+		}
+
+		.xianyu h4 {
+			font-size: 20px;
+			font-weight: 600;
+			margin-top:10px;
+		}
+
+		#photo li:hover .xianyu {
+			/* top: 0; */
+			transform: scale(1);
+		}
+
+		.snowfall-flakes {
+			position: relative;
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+			background-color: #096;
+		}
+
+		.snowfall-flakes:before,
+		.snowfall-flakes:after {
+			/*激活伪元素的必要因素*/
+			content: '';
+			position: absolute;
+			width: 10px;
+			height: 16px;
+			background-color: red;
+			border-radius: 5px 5px 0 0;
+		}
+
+		.snowfall-flakes:before {
+			transform: translateX(4.2px) rotate(45deg);
+		}
+
+		.snowfall-flakes:after {
+			transform: rotate(-45deg);
+		}
+		
+	</style>
+	<body>
+		<div class="wrap"></div>
+		<div class="jingshen">
+			<h1>
+				<div id="photo">
+					<div class="text">
+						hello word
+					</div>
+					<li style="background: url(images/1.jpg);">
+						<!-- <img src="images/1.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+					<li style="background: url(images/2.jpg);">
+						<!-- <img src="images/2.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+					<li style="background: url(images/3.jpg);">
+						<!-- <img src="images/3.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+					<li style="background: url(images/4.jpg);">
+						<!-- <img src="images/4.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+					<li style="background: url(images/5.jpg);">
+						<!-- <img src="images/5.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+					<li style="background: url(images/6.jpg);">
+						<!-- <img src="images/6.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+					<li style="background: url(images/7.jpg);">
+						<!-- <img src="images/7.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+					<li style="background: url(images/8.jpg);">
+						<!-- <img src="images/8.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+					<li style="background: url(images/9.jpg);">
+						<!-- <img src="images/9.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+					<li style="background: url(images/10.jpg);">
+						<!-- <img src="images/10.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+					<li style="background: url(images/11.jpg);">
+						<!-- <img src="images/11.jpg"> -->
+						<div class="xianyu">
+							<h4>啦啦啦</h4>
+						</div>
+					</li>
+				</div>
+			</h1>
+		</div>
+		<audio autoplay="autoplay" loop="loop" src="music/song.mp3" id="myAudio">
+			
+		</audio>
+		
+		<script type="text/javascript" src="js/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="https://cdn.bootcss.com/JQuery-Snowfall/1.7.4/snowfall.jquery.min.js"></script>
+		<script type="text/javascript">
+			
+			var ll = document.getElementsByTagName("li");
+			/*通过相册张数获取相邻两张图片之间的平均旋转角度*/
+			// var sum = document.getElementsByTagName("img");
+			var num = 360 / ll.length;
+			window.onload = function() { /*页面加载完毕之后再执行的函数*/
+				
+				for (var i = 0; i < ll.length; i++) {
+					
+					/*原本重叠的每张照片绕Y轴旋转相应度数，使之散开。越后面的照片旋转度数越高。
+					散开后朝各自面向的方向移动，围成圆形。*/
+					ll[i].style.transform = "rotateY(" + i * num + "deg) translateZ(350px)";
+					/*控制出场动画，图片开始旋转进场。越后面的图片延迟时间越短。*/
+					ll[i].style.transition = "1s " + (ll.length - i) * 0.2 + "s";
+				};
+
+// 				for (var j = 0; j < ll.length; j++) {
+// 					ll[j].onmouseover = function() {
+// 						this.style.width = '133px';
+// 						this.style.height = '200px';
+// 						this.style.transition = "1s";
+// 					}
+// 					ll[j].onmouseout = function() {
+// 						this.style.width = '120px';
+// 						this.style.height = '150px';
+// 						this.style.transition = "1s";
+// 					}
+// 				}
+			}
+			/*实现相册随鼠标拖拽而旋转实际上是改变photo的rotate旋转度数值。
+			旋转度数值为两次移动的鼠标位置差值，即鼠标移动后位置减去移动前位置*/
+
+			var rotateX = -20,
+				rotateY = 0;
+
+			document.onmousedown = function(e) { /*鼠标点下未松开*/
+				var oldX = e.clientX,
+					oldY = e.clientY; /*第一次点击时值相当于第一次移动的旧值*/
+				this.onmousemove = function(e) { /*鼠标点下后移动*/
+					var newX = e.clientX,
+						newY = e.clientY; /*每一次移动时所产生的鼠标位置*/
+
+					var chaX = newX - oldX,
+						chaY = newY - oldY;
+					/*求出来的度数差需累加到原来的度数之上*/
+					rotateX -= chaY * 0.1;
+					rotateY += chaX * 0.2;
+					photo.style.transform = "rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
+					oldX = newX;
+					oldY = newY;
+				}
+				this.onmouseup = function() { /*鼠标松开*/
+					this.onmousemove = null; /*松开后结束鼠标移动事件*/
+				}
+			}
+			
+		</script>
+	</body>
+</html>
