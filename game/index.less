@@ -17,6 +17,11 @@ a:link {
   width: 100%;
   height: 600px;
   background: url(./images/banner.png);
+  background-size: cover;
+  background-position-x: -70px;
+  @media (min-width: 600px) {
+    background-position-x:0;
+  }
 }
 
 .tabbar {
@@ -36,7 +41,7 @@ a:link {
     font-size: 16px;
     font-weight: 600;
     margin-top: 30px;
-    :hover{
+    :hover {
       color: red;
     }
     li {
@@ -44,16 +49,24 @@ a:link {
     }
   }
 }
-.c-tabbar{
-  .dropdown{
-    float: right;
-    margin-top: 30px;
-    margin-right: 20%;
-    .c-dropdown-menu{
-      width: 100%;
+
+.c-tabbar {
+  .navbar {
+    margin-bottom: 0;
+    border: none;
+    background: none;
+    .navbar-collapse{
+      background: #f8f8f8;
+    }
+    .navbar-toggle{
+      margin-top: -30px;
+      margin-right: 100px;
     }
   }
-
+  li {
+    float: none;
+    text-align: center;
+  }
 }
 
 .project {
@@ -61,6 +74,7 @@ a:link {
   h2 {
     margin-top: 50px;
     margin-bottom: 50px;
+    text-align: center;
   }
   .row {
     margin-left: 0 !important;
@@ -71,6 +85,10 @@ a:link {
       padding: 20px;
       box-shadow: 1px 1px 10px #352e2e;
       border-radius: 10px;
+      margin-bottom: 15px;
+      @media (min-width: 992) {
+        margin-bottom: 0;
+      }
       img {
         width: 100%;
         border-radius: 50%;
@@ -92,7 +110,7 @@ a:link {
 
 .about {
   h2 {
-    margin: 30px 45%;
+    text-align: center;
   }
   .txt {
     text-align: center;
@@ -116,6 +134,9 @@ a:link {
 .believe {
   background-color: rgb(240, 240, 240);
   padding: 20px 0;
+  h2 {
+    text-align: center;
+  }
   .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -150,24 +171,30 @@ a:link {
       margin-top: 10px;
     }
   }
-  .link{
+  .link {
     overflow: hidden;
     padding-left: 30px;
     margin-top: 30px;
-    li{
+    text-align: center;
+    li {
       line-height: 30px;
-      a{
+      margin-bottom: 20px;
+      @media (min-width: 768px) {
+        margin-bottom: 0;
+      }
+      a {
         color: black;
         display: block;
       }
     }
   }
 }
-.foot{
-  background-color: rgb(204,204,204);
+
+.foot {
+  background-color: rgb(204, 204, 204);
   text-align: center;
   padding: 30px 0;
-  img{
+  img {
     margin: 20px 0;
   }
 }
