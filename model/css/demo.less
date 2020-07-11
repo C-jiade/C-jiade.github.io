@@ -129,6 +129,9 @@ a:link {
         p:hover {
           background-color: white;
           color: black;
+          animation-name: mymove;
+          animation-duration: 1s;
+          animation-iteration-count: infinite;
         }
       }
     }
@@ -594,5 +597,14 @@ a:link {
         text-align: left;
       }
     }
+  }
+}
+
+@keyframes mymove {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
   }
 }
