@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/font-awesome.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    .bg {
+      width: 100%;
+      background: url("./image/Wherecanilive-for-visas-and-citizenship-information.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .bg .row {
+      margin-right: 0;
+    }
+
+    .top .logo {
+      padding: 20px 15px
+    }
+
+    .top .logo .home {
+      float: right;
+      margin-top: 20px
+    }
+
+    .top .logo .home :hover {
+      color: #FC427B
+    }
+
+    .top .logo .home li {
+      cursor: pointer;
+      margin: 0 10px;
+      font-weight: 600;
+      font-size: 16px
+    }
+
+    .top .logo .home .dropdown-menu {
+      background-color: #333;
+      color: white
+    }
+
+    .top .logo .home .dropdown-menu li {
+      float: none;
+      line-height: 30px
+    }
+
+    .c-top .logo .navbar {
+      margin-bottom: 0;
+      border: none
+    }
+
+    .c-top .logo .navbar-default {
+      background-color: none !important;
+      border-color: none !important
+    }
+
+    .c-top .line {
+      border-top: 1px solid #ddd;
+    }
+
+    .c-top .logo li {
+      float: none;
+      text-align: center
+    }
+
+    .warp {
+      margin-bottom: 60px;
+
+    }
+
+    .s-warp {
+      padding: 20px 0;
+    }
+
+    .s-warp .key {
+      margin-left: 15px;
+      width: 120px;
+
+    }
+
+    @media (min-width: 992px) {
+      .s-warp .key {
+        margin-left: 30px;
+        width: 150px;
+      }
+    }
+
+    .s-warp .navbar-collapse {
+      padding: 0 !important;
+
+    }
+
+    .s-warp .container-fluid {
+      padding: 0 !important;
+    }
+
+    .c-warp {
+      margin-top: 0;
+      background-color: black;
+    }
+
+    .c-warp .icon {
+      margin: 30px 0 20px 70px;
+    }
+
+    .c-warp .menu {
+      margin: 60px 0 0 100px;
+    }
+
+    .c-warp ul li {
+      font-size: 18px;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    /* 小屏幕的导航条 */
+    .c-dropdown-menu {
+      top: 150% !important;
+      width: 100%;
+    }
+
+    /* 导航条 */
+    .navbar-default {
+      background: none;
+      border: none;
+    }
+
+    .navbar-nav li {
+      cursor: pointer;
+    }
+
+    .navbar-nav li a {
+      color: white !important;
+      background: none !important;
+      font-size: 13px;
+    }
+
+    @media (min-width: 992px) {
+      .navbar-nav li a {
+        font-size: 15px;
+      }
+    }
+
+
+    .dropdown-menu {
+      left: -80px;
+      top: 80%;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .dropdown-menu li {
+      line-height: 25px;
+    }
+
+    .glyphicon {
+      font-size: 20px;
+      color: white;
+    }
+
+    /* 导航条下方字体 */
+
+    .warp h2 {
+      font-size: 50px;
+      color: white;
+      text-align: center;
+    }
+
+
+    .sel {
+      padding: 0 40%;
+      margin: 50px 0 180px 0;
+      text-align: center;
+    }
+
+    .sel .dropdown .dropdown-toggle {
+      font-size: 25px;
+      color: white;
+
+    }
+
+    .sel .dropdown-menu {
+      left: 42px;
+      cursor: pointer;
+      background-color: lawngreen;
+    }
+
+
+    /* 主体内容部分 */
+    .content {
+      background-color: rgb(238, 238, 238);
+    }
+
+    .content h1 {
+      color: black;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .content .global {
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .content .photo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .content .photo .s-photo {
+      background-color: white;
+      padding: 15px;
+      box-shadow: 1px 1px 10px #aaa;
+    }
+
+    .content .photo img {
+      width: 100%;
+    }
+
+    .content .photo h4 {
+      font-weight: 600;
+      margin: 13px 0;
+    }
+
+    .content .photo p {
+      margin: 10px 0 20px 0;
+      height: 65px;
+    }
+
+    .content .join {
+      background-color: white;
+      margin-top: 60px;
+      text-align: center;
+      padding: 50px 0;
+    }
+
+    .content .join h1 {
+      font-size: 40px;
+      line-height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .content .join .line {
+      height: 1px;
+      background-color: black;
+      margin-bottom: 50px;
+    }
+
+    .content .join .as {
+      font-size: 20px;
+      font-weight: 600;
+      color: black;
+      margin-bottom: 30px;
+    }
+
+    .content .c-photo {
+      margin: 50px 0 60px 0;
+      font-weight: 300;
+      font-size: 18px;
+
+    }
+
+    .content .c-photo img {
+      width: 56px;
+    }
+
+    .content .c-photo .s-photo {
+      padding: 30px 0 50px 0;
+    }
+
+    .content .c-photo .s-photo .s-line {
+      height: 3px;
+      background-color: rgb(147, 206, 98);
+    }
+
+    /* 脚部样式 */
+    .foot {
+      background-color: rgb(39, 39, 39);
+      color: white;
+      padding: 50px 0 80px 0;
+    }
+
+    .foot .footer h3 {
+      width: max-content;
+      border-bottom: 2px solid #72c02c;
+      font-size: 18px;
+      color: white;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+
+    .foot .footer ul li {
+      font-size: 18px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .foot .footer ul li:hover {
+      color: #72c02c;
+    }
+
+    .foot .footer input,
+    select {
+      font-size: 16px;
+      margin-bottom: 10px;
+      background-color: #fff;
+      color: #333;
+      padding: 15px;
+      width: 100%;
+    }
+
+    .foot .footer button {
+      font-size: 18px;
+      text-align: center;
+      background-color: #72c02c;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+    .foot .footer button:hover {
+      color: #333;
+    }
+
+    .foot .footer p {
+      color: white;
+      font-size: 18px;
+      margin-left: 50%;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .foot .footer a:hover .glyphicon {
+      color: #72c02c;
+    }
+
+    .foot .footer a:hover p {
+      color: #72c02c;
+    }
+
+    /* 底部固定栏 */
+
+    .end {
+      width: 100%;
+      background-color: white;
+      text-align: center;
+      padding: 15px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+
+    }
+
+    .end span {
+      font-size: 18px;
+    }
+
+    .end button {
+      color: white;
+      background-color: black;
+      padding: 5px 15px;
+    }
+
+    @media (min-width:768px) {
+      .navbar-header {
+        float: none;
+      }
+
+      .navbar-toggle {
+        display: block;
+      }
+
+      .navbar-nav {
+        float: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg">
+    <div class="top visible-xs  c-top">
+      <div class="row logo">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div class="col-xs-3">
+                <a href="#"><img src="./image/wherecanilive-drawn-white-200-1.png" alt="" class="key"></a>
+              </div>
+            </div>
+            <div class="collapse line navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="row s-warp hidden-xs">
+      <img src="./image/wherecanilive-drawn-white-200-1.png" alt="" class="key">
+      <!-- 导航条 -->
+      <div style="float: right;">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">HOME <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">COUNTRIES</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">EXPLORE OPTIONS <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>Best country to live in</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Retire Abroad</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Live in Europe</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Investment visas</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Income visas</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Freelancer Visa and Digital Nomad Visa</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Startup Visas</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Working Holiday Visa</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Critical Skills Visas</li>
+                  </ul>
+                </li>
+                <li><a href="#">Speak To a Lawyer</a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                    aria-haspopup="true" aria-expanded="false">BLOG<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>Blog Home</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Expat Stories</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Moving Abroad</li>
+                    <li role="separator" class="divider"></li>
+                    <li>Visa and Citizenship Info</li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                    aria-haspopup="true" aria-expanded="false">ABOUT<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>ABOUT US</li>
+                    <li role="separator" class="divider"></li>
+                    <li>PRESS</li>
+                    <li role="separator" class="divider"></li>
+                    <li>CONTACT US</li>
+                  </ul>
+                </li>
+
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+
+      </div>
+    </div>
+    <div class="container">
+      <div class=" row warp">
+        <div class="col-xs-12">
+          <h2>DISCOVER A NEW LIFE ABROAD</h2>
+        </div>
+      </div>
+      <div class="row sel">
+        <div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+            aria-haspopup="true" aria-expanded="false">BLOG<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>Blog Home</li>
+            <li role="separator" class="divider"></li>
+            <li>Expat Stories</li>
+            <li role="separator" class="divider"></li>
+            <li>Moving Abroad</li>
+            <li role="separator" class="divider"></li>
+            <li>Visa and Citizenship Info</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="container">
+      <div class="row global">
+        <div class="col-xs-12 ">
+          <h1>Global Visa, Residency and Citizenship options for your Move Abroad</h1>
+        </div>
+      </div>
+      <div class="row photo">
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Best Country To Live In</h4>
+            <img src="./image/Which-country-should-I-live-in.jpg">
+            <p>Explore which country is right for you and your family when you move abroad</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Types Of Visas And Permits</h4>
+            <img src="./image/A-couple-talking-about-visa-options-1.jpg">
+            <p> You will be surprised to discover all of the visa options to live abroad. Let us show you what is
+              possible</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Investment Visas</h4>
+            <img src="./image/Investment-Visas-for-the-family-1-2.jpg">
+            <p>Invest in property, watch your money grow and be eligible for a passport or visa at the same time</p>
+          </div>
+        </div>
+      </div>
+      <div class="row photo">
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Dual Citizenship?</h4>
+            <img src="./image/Lady-with-a-second-passport-702x526.jpg">
+            <p>A second passport can be life changing. Find out where to start and how to take the next steps</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Retirement Abroad?</h4>
+            <img src="./image/Retirement-Visa-1-702x516.jpg">
+            <p> Are you approaching retirement and wondering what options there are abroad? </p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Live In Europe?</h4>
+            <img src="./image/A-couple-living-in-Europe-702x526.jpg">
+            <p>Want to live and work in Europe? There are more ways to make this happen than you may realise.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row photo">
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Have A Passive Income?</h4>
+            <img src="./image/Man-relaxing-Passive-Income-1-1-702x526.jpg">
+            <p>Many countries will give you a residency visa if you can show that you can support yourself.</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Digital Nomad Or Freelancer?</h4>
+            <img src="./image/Digital-Nomad-working-on-beach-702x526.jpg">
+            <p> Let us show you what visa options you have around the globe.</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Working Holiday Visa?</h4>
+            <img src="./image/People-on-a-working-holiday-visa-702x526.jpg">
+            <p>Seeing the world and being able to fund yourself through travel is priceless. </p>
+          </div>
+        </div>
+      </div>
+      <div class="row join">
+        <div class="col-xs-12">
+          <h1>Join thousands of people who have used our unique service to discover the world.</h1>
+        </div>
+        <div class="col-xs-12 line"></div>
+        <div class="col-xs-12 as">As Seen On</div>
+        <div class="col-xs-12 logo-photo">
+          <img src="https://wherecani.live/wp-content/uploads/2019/11/asseenin.png" class="col-xs-12">
+        </div>
+      </div>
+      <div class="row photo c-photo">
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Discover</h4>
+            <img src="./image/lens.png">
+            <p>There are over 195 countries in the world. Are one of these in your future?</p>
+            <div class="col-xs-2 col-xs-offset-5 s-line"></div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Explore</h4>
+            <img src="./image/location.png">
+            <p> There are loads of visa options that you could be eligible for. </p>
+            <div class="col-xs-2 col-xs-offset-5 s-line"></div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+          <div class="s-photo">
+            <h4>Take Action</h4>
+            <img src="./image/action.png">
+            <p>Talk to our trusted advisers to make your dream become real.</p>
+            <div class="col-xs-2 col-xs-offset-5 s-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="container">
+      <div class="row footer">
+        <div class="col-xs-12 col-md-4">
+          <h3>USEFUL LINKS</h3>
+          <ul>
+            <li>Home</li>
+            <li>Blog</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+            <li>Speak To a Lawyer</li>
+            <li>Terms of Service</li>
+            <li>Privacy and Security</li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <h3>CONTACT US</h3>
+          <ul>
+            <li>Where Can I Live Ltd.</li>
+            <li>71-75 Shelton Street, Covent Garden,</li>
+            <li>London, United Kingdom</li>
+            <li>Contact Us</li>
+            <li>WC2H 9JQ</li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <h3>JOIN OUR NEWSLETTER</h3>
+          <input type="text" placeholder="First Name">
+          <input type="email" placeholder="E-Mail Address">
+          <select name="" id="">
+            <option value="">I’m interested in ….</option>
+            <option value="">Living Abroad</option>
+            <option value="">Working Abroad</option>
+            <option value="">Being a digital nomad</option>
+            <option value="">Retiring Abroad</option>
+            <option value="">Investment Visas</option>
+            <option value="">Second Passport</option>
+            <option value="">Just Curious</option>
+          </select>
+          <button>JOIN US</button>
+          <h3>ADVERTISE WITH US</h3>
+          <a href="#">
+            <p>Find out more</p>
+            <i class="glyphicon glyphicon-circle-arrow-right i"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="end">
+    <span>This site uses cookies to ensure an amazing experience! <a href="#">Read More</a></span>
+    <button>ACCEPT</button>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

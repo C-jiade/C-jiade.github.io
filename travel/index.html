@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/minireset.css/0.0.2/minireset.css" />
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		li {
+			list-style: none;
+		}
+
+		.why {
+			width: 500px;
+			margin: 0 auto;
+			text-align: center;
+			padding-top: 50px;
+		}
+
+		.why li {
+			font-size: 3.0em;
+			font-weight: 600;
+			display: inline;
+			color: #333;
+			margin-right: 10px;
+		}
+
+		.why h2 {
+			text-align: center;
+			display: inline;
+			font-size: 3.0em;
+			font-weight: 300;
+			color: #555;
+			margin-right: 10px;
+		}
+
+		/*header*/
+		.header {
+			background: url(images/bg.jpg) no-repeat;
+			background-size: cover;
+		}
+
+		.header .bg {
+			background: rgba(0, 0, 0, 0.4);
+		}
+
+		.header .top {
+			width: 1140px;
+			margin: 0 auto;
+			padding: 10px 0;
+		}
+
+		.header .top .small {
+			width: 35%;
+			margin-left: 740px;
+			padding: 10px 0;
+		}
+
+		.header .top .small i {
+			color: #ddd;
+		}
+
+		.header .top .small a {
+			margin: 0 10px;
+			color: #ddd;
+			transition: all 1s;
+		}
+
+		.header .top .small .box:hover span{
+			color: black;
+		}
+		.header .top .small .box {
+			display: inline-block;
+			margin-left: 5px;
+			padding-top: 6px;
+			background: #9e9e9e;
+			border-radius: 50%;
+			width: 34px;
+			height: 34px;
+			text-align: center;
+			transition: all 1s;
+		}
+
+		 .header .top .small .box:hover {
+			background: white;
+		}
+
+		.header .big-nav {
+			/* overflow: hidden; */
+			width: 1140px;
+			margin: 0 auto;
+		}
+
+		.header .big-nav .logo {
+			float: left;
+			width: 210px;
+			text-align: center;
+		}
+
+		.header .big-nav .logo a {
+			padding: 10px 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+			font-size: 25px;
+			color: white;
+		}
+
+		.header .big-nav .logo a .fa {
+			font-size: 30px;
+		}
+
+		.header .big-nav .logo a span {
+			color: #0079c1;
+			width: 35px;
+		}
+
+		.header .big-nav .nav {
+			float: right;
+			position: relative;
+			/* overflow: hidden; */
+			list-style: none;
+			left: -30px;
+		}
+
+		.header .big-nav .nav li {
+			position: relative;
+			margin-left: 20px;
+			float: left;
+		}
+
+		.header .big-nav .nav li a {
+			color: white;
+		}
+
+		.big-nav .nav li ul {
+			overflow: hidden;
+			background: white;
+			position: absolute;
+			left: 0;
+			top: 30px;
+			display: none;
+			width: 200px;
+			padding: 15px;
+
+		}
+
+		.big-nav .nav li ul p {
+			line-height: 30px;
+		}
+
+		.big-nav .nav li .ul p a {
+			color: black;
+		}
+
+		.big-nav .nav li ul p:hover a {
+			background: lightgray;
+		}
+
+		.big-nav .nav li:nth-child(4):hover ul {
+			display: block;
+		}
+
+		.txt {
+			width: 700px;
+			margin: 0 auto;
+			text-align: center;
+			color: white;
+			padding-top: 170px;
+		}
+
+		.txt h2 {
+			font-size: 3.5em;
+			font-weight: 600;
+		}
+
+		.txt p {
+			color: white;
+			line-height: 30px;
+			padding: 20px 0 120px 0;
+		}
+
+		.btn {
+			width: 1140px;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.btn a {
+			font-size: 30px;
+			color: white;
+		}
+
+		.btn a .fa:hover {
+			color: skyblue;
+		}
+
+		/*choose*/
+		.choose .because {
+			overflow: hidden;
+			padding-top: 30px;
+			width: 1140px;
+			margin: 0 auto;
+		}
+
+		.because li {
+			float: left;
+			width: 22%;
+			margin: 0 15px;
+		}
+
+		.because li .content {
+			width: 100%;
+			text-align: center;
+		}
+
+		.choose .content .fa {
+			background: #0079c1;
+			width: 70px;
+			height: 70px;
+			line-height: 70px;
+			text-align: center;
+			border-radius: 50%;
+			font-size: 23px;
+			color: #fff;
+			transition: all 1s;
+		}
+
+		.choose .content .fa:hover {
+			background: orange;
+		}
+
+		.content h3 {
+			font-weight: 600;
+			font-size: 23px;
+			/*单词首字母大写*/
+			text-transform: capitalize;
+			line-height: 32px;
+			padding-top: 20px;
+			color: #323648;
+		}
+
+		.content p {
+			font-size: 17px;
+			color: #707579;
+			line-height: 40px;
+		}
+
+		.big-box {
+			width: 1140px;
+			margin: 150px auto 70px auto;
+			overflow: hidden;
+		}
+
+		.big-box li {
+			float: left;
+			width: 50%;
+		}
+
+		.big-box li .left {
+			width: 100%
+		}
+
+		.big-box li .right h3 {
+			color: #999;
+			letter-spacing: 2px;
+			font-weight: 600;
+			padding-top: 10px;
+		}
+
+		.big-box li .right h1 {
+			font-size: 30px;
+			font-weight: 600;
+			/*单词首字母大写*/
+			text-transform: capitalize;
+			line-height: 32px;
+			margin-top: 15px;
+		}
+
+		.big-box li .right h4 {
+			font-weight: 600;
+			/*单词字母间距*/
+			letter-spacing: 2px;
+			font-size: 18px;
+			margin: 20px 0;
+		}
+
+		.big-box li .right h4 .fa {
+			color: #0079C1;
+		}
+
+		.big-box li .right p {
+			font-size: 18px;
+			line-height: 30px;
+			letter-spacing: 1px;
+			color: #707579;
+		}
+
+		/*Agents*/
+		.Agents {
+			background: #f5f5f5;
+			margin-bottom: 30px;
+		}
+
+		.Agents .big-card {
+			overflow: hidden;
+			width: 1110px;
+			margin: 0 auto;
+			padding: 50px 0 60px 0;
+		}
+
+		.Agents .big-card li {
+			width: 23%;
+			float: left;
+			background: white;
+			text-align: center;
+			margin: 0 10px;
+		}
+
+		.Agents .big-card .card {
+			width: 100%;
+			text-align: center;
+			padding: 30px 0;
+			box-shadow: 7px 7px 10px 0 rgba(76, 110, 245, .1);
+		}
+
+		.Agents .big-card .card img {
+			width: 160px;
+			height: 160px;
+			border-radius: 50%;
+			border: 5px solid #f9f9f9;
+		}
+
+		.Agents .big-card .card h3 {
+			font-size: 25px;
+			font-weight: 500;
+			color: #555;
+			margin: 10px;
+		}
+
+		.Agents .big-card .card p {
+			font-size: 17px;
+			line-height: 30px;
+			letter-spacing: 1px;
+			color: #707579;
+		}
+
+		/*travel*/
+		.travel .big-photo {
+			overflow: hidden;
+			width: 1140px;
+			margin: 35px auto 0 auto;
+		}
+
+		.travel .big-photo .one {
+			width: 23%;
+			float: left;
+			background: url(images/blog.jpg) no-repeat center;
+			background-size: cover;
+			margin: 0 10px;
+		}
+
+		.travel .big-photo .two {
+			width: 23%;
+			float: left;
+			background: url(images/blog1.jpg) no-repeat center;
+			background-size: cover;
+			margin: 0 10px;
+		}
+
+		.travel .big-photo .three {
+			width: 23%;
+			float: left;
+			background: url(images/blog3.jpg) no-repeat center;
+			background-size: cover;
+			margin: 0 10px;
+		}
+
+		.travel .big-photo .four {
+			width: 23%;
+			float: left;
+			background: url(images/blog4.jpg) no-repeat center;
+			background-size: cover;
+			margin: 0 10px;
+		}
+
+		.travel .big-photo .five {
+			width: 23%;
+			float: left;
+			background: url(images/blog5.jpg) no-repeat center;
+			background-size: cover;
+			margin: 0 10px;
+			margin-bottom: 80px;
+		}
+
+		.travel .big-photo .six {
+			width: 23%;
+			float: left;
+			background: url(images/blog6.jpg) no-repeat center;
+			background-size: cover;
+			margin: 0 10px;
+		}
+
+		.travel .big-photo .seven {
+			width: 23%;
+			float: left;
+			background: url(images/blog7.jpg) no-repeat center;
+			background-size: cover;
+			margin: 0 10px;
+		}
+
+		.travel .big-photo .eight {
+			width: 23%;
+			float: left;
+			background: url(images/blog8.jpg) no-repeat center;
+			background-size: cover;
+			margin: 0 10px;
+		}
+
+		.travel .big-photo li .photo {
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.5);
+			position: relative;
+			top: -262px;
+			transition: all 0.8s;
+		}
+
+		.travel .big-photo li:hover .photo {
+			top: 0;
+		}
+
+		.info-top {
+			padding: 30px;
+		}
+
+		.info-top .star span {
+			position: relative;
+			color: white;
+			margin: 2px;
+			/*添加阴影：阴影是否出现  阴影上下位置  阴影的模糊大小  rgba(阴影透明程度)*/
+			text-shadow: 0 2px 2px rgba(0, 0, 0, 0.31);
+			top: 100px;
+		}
+
+		.info-top .star span:nth-child(1) {
+			transition: all 1.2s;
+		}
+
+		.info-top .star span:nth-child(2) {
+			transition: all 1.4s;
+		}
+
+		.info-top .star span:nth-child(3) {
+			transition: all 1.6s;
+		}
+
+		.info-top .star span:nth-child(4) {
+			transition: all 1.8s;
+		}
+
+		.info-top .star span:nth-child(5) {
+			transition: all 2.0s;
+		}
+
+		.travel .big-photo li:hover span {
+			top: 0;
+		}
+
+		.info-top h4 {
+			color: white;
+			font-size: 20px;
+			font-weight: 600;
+			letter-spacing: 1px;
+		}
+
+		.info-foot {
+			padding-left: 0;
+			padding-bottom: 0;
+			padding-left: 30px;
+			padding-top: 70px;
+			padding-bottom: 38px;
+		}
+
+		.info-foot p {
+			color: white;
+			font-size: 12px;
+			letter-spacing: 1px;
+		}
+
+		.info-foot p b {
+			font-size: 20px;
+			margin: 0 5px;
+		}
+
+		/*packages*/
+		.packages {
+			background: #f5f5f5;
+		}
+
+		.packages .jiangyou {
+			overflow: hidden;
+			width: 1140px;
+			margin: 0 auto;
+			padding: 30px 0 50px 0;
+		}
+
+		.packages .jiangyou li {
+			width: 30%;
+			text-align: center;
+			float: left;
+			margin: 0 18px;
+		}
+
+		.packages .jiangyou li:hover .weekly {
+			background: #0079c1;
+		}
+
+		.packages .jiangyou li:hover p {
+			color: #bbb;
+		}
+
+		.packages .jiangyou li .weekly {
+			width: 100%;
+			padding: 20px 40px;
+			background: white;
+			border-radius: 10px;
+		}
+
+		.weekly h3 {
+			font-size: 30px;
+			letter-spacing: 1px;
+			font-weight: 300;
+			color: #323648;
+		}
+
+		.weekly h4 {
+			font-size: 40px;
+			font-weight: 600;
+			color: #323648;
+			margin: 10px 0;
+		}
+
+		.weekly p {
+			letter-spacing: 1px;
+			color: #707579;
+			margin-bottom: 12px;
+			line-height: 30px;
+			text-align: left;
+		}
+
+		.weekly p span {
+			margin-right: 5px;
+		}
+
+		.jiangyou li a {
+			color: #0079c1;
+			letter-spacing: 1px;
+			font-weight: 600;
+			display: block;
+			padding-top: 20px;
+
+		}
+
+		.jiangyou li a span {
+			margin-left: 10px;
+		}
+
+		/*news*/
+		.magua {
+			overflow: hidden;
+			width: 1140px;
+			margin: 0 auto;
+			padding: 70px 0;
+		}
+
+		.magua li {
+			float: left;
+			width: 30%;
+			margin: 0 16px;
+		}
+
+		.magua li:hover .trip {
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+
+		li .trip {
+			width: 100%;
+			height: 100%;
+		}
+
+		.trip h4 {
+			font-size: 16px;
+			letter-spacing: 1px;
+			color: #999;
+			padding: 10px 0;
+		}
+
+		.trip h4 span {
+			margin-right: 5px;
+		}
+
+		.trip h4 span:nth-child(2) {
+			margin-left: 25px;
+		}
+
+		.trip a {
+			display: block;
+			color: #222;
+			font-size: 22px;
+			font-weight: 600;
+			padding-bottom: 10px;
+		}
+
+		.trip p {
+			font-size: 17px;
+			letter-spacing: 1px;
+			line-height: 25px;
+			color: #707579;
+		}
+
+		/*want*/
+		.want {
+			background: #0079c1;
+		}
+
+		.want .book {
+			width: 1140px;
+			margin: 0 auto;
+		}
+
+		.book .small-book {
+			width: 66%;
+		}
+
+		.book .small-book h1 {
+			color: white;
+			font-size: 30px;
+			font-weight: 600;
+			padding-top: 60px;
+			padding-bottom: 30px;
+		}
+
+		.book .small-book p {
+			color: #ccc;
+			letter-spacing: 1px;
+			line-height: 30px;
+			font-size: 17px;
+			padding-bottom: 30px;
+		}
+
+		.book form {
+			padding-bottom: 50px;
+		}
+
+		.book form input[type="text"] {
+			font-size: 15px;
+			letter-spacing: 1px;
+			background: none;
+			color: #ccc;
+			border: 1px solid #ccc;
+			width: 255px;
+			height: 50px;
+			margin-right: 5px;
+			padding-left: 20px;
+		}
+
+		.book form input[type="submit"] {
+			width: 200px;
+			height: 50px;
+			background: white;
+			color: #0079c1;
+			font-weight: 600;
+			font-size: 15px;
+			letter-spacing: 1px;
+			border: none;
+		}
+
+		/*us*/
+		.us .xianyu {
+			overflow:hidden;
+			width: 1140px;
+			margin: 0 auto;
+			padding: 30px 0;
+		}
+		.xianyu li{
+			float:left;
+			width:40%;
+		}
+		.xianyu li:nth-child(2){
+			width:55%;
+			margin-left:50px;
+		}
+		li .biaodan {
+			width: 100%;
+		}
+
+		.biaodan form input[type="text"],
+		input[type="email"] {
+			width: 100%;
+			height: 55px;
+			font-size: 15px;
+			letter-spacing: 1px;
+			color: #707570;
+			padding-left: 10px;
+			margin-bottom: 15px;
+			border: 1px solid #888;
+		}
+
+		.biaodan form textarea {
+			width: 100%;
+			height: 9em;
+			/*去除右下角斜杆*/
+			resize: none;
+			font-size: 15px;
+			padding: 10px;
+			font-family: inherit;
+		}
+
+		.biaodan form input[type="submit"] {
+			width: 30%;
+			height: 50px;
+			background: #0079c1;
+			color: white;
+			border: none;
+			font-size: 16px;
+			font-weight: 100;
+			letter-spacing: 1px;
+			margin-top: 20px;
+		}
+		
+		li .biankuang{
+			width:100%;
+		}
+		.biankuang .and {
+			width: 100%;
+			height: 340px;
+			border: 4px dotted #0079C1;
+		}
+		/*footer*/
+		.footer{
+			background:#252525;
+			
+		}
+		.footer .foot-top{
+			overflow:hidden;
+			width:1140px;
+			margin:0 auto;
+			padding: 40px 0;
+		}
+		.foot-top li{
+			width:40%;
+			float:left;
+		}
+		.foot-top li:nth-child(2){
+			width:55%;
+			margin-left:50px;
+		}
+		.join h3{
+			font-size:25px;
+			letter-spacing:1px;
+			color:#ccc;
+		}
+		.join h3 span{
+			margin-right:10px;
+		}
+		.join p{
+			color:#707579;
+			letter-spacing:2px;
+		}
+		.e-mail input[type="text"]{
+			width:70%;
+			height:50px;
+			background:none;
+			border:none;
+			border-bottom:1px solid #777;
+			font-family:inherit;
+			font-size:15px;
+			letter-spacing:2px;
+		}
+		.e-mail input[type="submit"]{
+			width:29%;
+			height:50px;
+			background:#0079C1;
+			color:white;
+			font-size:15px;
+			border:none;
+			font-weight:600;
+		}
+		.footer .foot-content{
+			width:1140px;
+			margin:0 auto;
+			overflow:hidden;
+			padding-bottom:30px;
+		}
+		.foot-content li{
+			float:left;
+		}
+		.foot-content li:nth-child(1){
+			width:25%;
+			padding:0 15px;
+		}
+		li h5{
+			color: #ccc;
+			font-size:22px;
+			letter-spacing:1px;
+			margin-bottom:10px;
+		}
+		.foot-info h6{
+			color:#aaa;
+			font-size:17px;
+			font-weight:600;
+			letter-spacing:1px;
+			padding:5px 0 5px 15px;
+			background:#292929;
+			margin:0 0 10px 0;
+			width:260px;
+		}
+		.foot-info p{
+			font-size:16px;
+			color:#707579;
+			letter-spacing: 1px;
+			line-height:30px;
+		}
+		.foot-content li:nth-child(2){
+			width:20%;
+			margin-left:20px;
+		}
+		.foot-add span{
+			color:#707579;
+			letter-spacing:2px;
+			line-height:30px;
+		}
+		.foot-add span a{
+			color:#707579;
+		}
+		.foot-add span a:hover{
+			color:#0079C1;
+		}
+		.foot-content li:nth-child(3){
+			width:20%;
+			padding:0 15px;
+		}
+		.foot-use p a{
+			color:#707579;
+			line-height:40px;
+		}
+		.foot-use p a:hover{
+			color:#0079C1;
+		}
+		.foot-content li:nth-child(4){
+			width:30%;
+			padding:0 15px;
+		}
+		.foot-test p{
+			color:#707579;
+			line-height:30px;
+			letter-spacing:1px;
+		}
+		.foot-test p a{
+			color: #555;
+		}
+		.foot-test p a:hover{
+			color:#0079C1;
+		}
+		.foot-btn{
+			text-align:center;
+		}
+		.foot-btn span{
+			color:#bbb;
+			font-size:30px;
+		}
+		.foot-btn span:hover{
+			color:#0079C1;
+		}
+		.end{
+			text-align:center;
+		}
+		.end p{
+			color:#888;
+			letter-spacing:1px;
+			padding:30px 0;
+			border-top:1px solid #404040;
+		}
+		.end p a{
+			color:#ccc;
+			transition:all 1s;
+		}
+		.end p a:hover{
+			color:#0079C1;
+		}
+	</style>
+	<body>
+		<div class="header">
+			<div class="bg">
+				<div class="top">
+					<div class="small">
+						<i class="fa fa-envelope-open-o"></i>
+						<a href="mailto:info@example.com">info@example.com</a>
+						<div class="box"><a href="#"><span class="fa fa-facebook"></span></a></div>
+						<div class="box"><a href="#"><span class="fa fa-twitter"></span></a></div>
+						<div class="box"><a href="#"><span class="fa fa-google-plus"></span></a></div>
+						<div class="box"><a href="#"><span class="fa fa-linkedin"></span></a></div>
+					</div>
+				</div>
+				<div class="big-nav">
+					<div class="logo">
+						<h1><a href="#"><span class="fa fa-globe"></span>Travel World</a></h1>
+					</div>
+					<ul class="nav">
+						<li><a href="">Home</a></li>
+						<li><a href="">Why Choose Us</a></li>
+						<li><a href="">About Us</a></li>
+						<li>
+							<a href="">Dropdown<i class="fa fa-angle-down"></i></a>
+							<ul class="ul">
+								<p><a href="">Our Agents</a></p>
+								<p><a href="">Travel Packages</a></p>
+								<p><a href="">News Blog</a></p>
+								<p><a href="">Book Now</a></p>
+							</ul>
+						</li>
+						<li><a href="">Contact</a></li>
+						<li><a href="">Subscribe</a></li>
+					</ul>
+				</div>
+				<div class="txt">
+					<h2>Plan Your Holiday Trip Now Exceptional Adventure</h2>
+					<p>Aliquam sodales neque ullamcorper vestibulum consequat. Curabitur mauris justo,
+						rutrum sit amet pulvinar et, rutrum mattis augue. In faucibus orci vitae nulla ipsum.
+					</p>
+				</div>
+				<div class="btn">
+					<a href="#">
+						<span class="fa fa-angle-double-down"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="choose">
+			<div class="why">
+				<li>Why</li>
+				<h2>Choose</h2>
+				<h2>Us</h2>
+			</div>
+			<div class="because">
+				<li>
+					<div class="content">
+						<span class="fa fa-cogs"></span>
+						<h3>Integer Pulvinar Leo Id Viverra Elit Ipsum</h3>
+						<p>Integer pulvinar leo idut viver feugiat. Pellentes que libero justo orci fermentum.</p>
+					</div>
+				</li>
+				<li>
+					<div class="content">
+						<span class="fa fa-headphones"></span>
+						<h3>Integer Pulvinar Leo Id Viverra Elit Ipsum</h3>
+						<p>Integer pulvinar leo idut viver feugiat. Pellentes que libero justo orci fermentum.</p>
+					</div>
+				</li>
+				<li>
+					<div class="content">
+						<span class="fa fa-calendar"></span>
+						<h3>Integer Pulvinar Leo Id Viverra Elit Ipsum</h3>
+						<p>Integer pulvinar leo idut viver feugiat. Pellentes que libero justo orci fermentum.</p>
+					</div>
+				</li>
+				<li>
+					<div class="content">
+						<span class="fa fa-cubes"></span>
+						<h3>Integer Pulvinar Leo Id Viverra Elit Ipsum</h3>
+						<p>Integer pulvinar leo idut viver feugiat. Pellentes que libero justo orci fermentum.</p>
+					</div>
+				</li>
+			</div>
+			<div class="big-box">
+				<li>
+					<div class="left">
+						<img src="images/about.jpg">
+					</div>
+				</li>
+				<li>
+					<div class="right">
+						<h3>MOUNT EVEREST</h3>
+						<h1>Explore The World With Us</h1>
+						<h4><span class="fa fa-plane"></span> Starting from $235 ,<span class="fa fa-bed"></span>hotels at $25</h4>
+						<p>Aliquam sodales neque ullamcorper vestibrulum consequat ipsum. Curabitur mauris justo,
+							rutrum sit amet pulvinar et, rutrum mattis augue. In faucibus orci vitae nulla ipsum. Aliquam
+							sodales nequer ullamcorper vestibulum consequat. Curabitur mauris justo, rutrul sit amet
+							pulvinar et, rutu mattis augue. In faucibus orci vitae null sed ipsum In faucibus orci
+							vitae nulla ipsum.
+						</p>
+					</div>
+				</li>
+			</div>
+		</div>
+		<div class="Agents">
+			<div class="why">
+				<li>Our</li>
+				<h2>Agents</h2>
+			</div>
+			<div class="big-card">
+				<li>
+					<div class="card">
+						<img src="images/team1.jpg">
+						<h3>Jane Watson</h3>
+						<p>Travel Agent</p>
+						<p>+21 345 287 4556</p>
+					</div>
+				</li>
+				<li>
+					<div class="card">
+						<img src="images/team2.jpg">
+						<h3>Jane Watson</h3>
+						<p>Travel Agent</p>
+						<p>+21 345 287 4556</p>
+					</div>
+				</li>
+				<li>
+					<div class="card">
+						<img src="images/team3.jpg">
+						<h3>Jane Watson</h3>
+						<p>Travel Agent</p>
+						<p>+21 345 287 4556</p>
+					</div>
+				</li>
+				<li>
+					<div class="card">
+						<img src="images/team4.jpg">
+						<h3>Jane Watson</h3>
+						<p>Travel Agent</p>
+						<p>+21 345 287 4556</p>
+					</div>
+				</li>
+			</div>
+		</div>
+		<div class="travel">
+			<div class="why">
+				<li>Travel</li>
+				<h2>With</h2>
+				<h2>Us</h2>
+			</div>
+			<div class="big-photo">
+				<li class="one">
+					<div class="photo">
+						<div class="info-top">
+							<div class="star">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<h4>Paris Trip</h4>
+						</div>
+						<div class="info-foot">
+							<p>
+								<b>6</b>DAYS<b>12</b>CITLES
+							</p>
+						</div>
+					</div>
+				</li>
+				<li class="two">
+					<div class="photo">
+						<div class="info-top">
+							<div class="star">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<h4>Paris Trip</h4>
+						</div>
+						<div class="info-foot">
+							<p>
+								<b>6</b>DAYS<b>12</b>CITLES
+							</p>
+						</div>
+					</div>
+				</li>
+				<li class="three">
+					<div class="photo">
+						<div class="info-top">
+							<div class="star">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<h4>Paris Trip</h4>
+						</div>
+						<div class="info-foot">
+							<p>
+								<b>6</b>DAYS<b>12</b>CITLES
+							</p>
+						</div>
+					</div>
+				</li>
+				<li class="four">
+					<div class="photo">
+						<div class="info-top">
+							<div class="star">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<h4>Paris Trip</h4>
+						</div>
+						<div class="info-foot">
+							<p>
+								<b>6</b>DAYS<b>12</b>CITLES
+							</p>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="big-photo">
+				<li class="five">
+					<div class="photo">
+						<div class="info-top">
+							<div class="star">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<h4>Paris Trip</h4>
+						</div>
+						<div class="info-foot">
+							<p>
+								<b>6</b>DAYS<b>12</b>CITLES
+							</p>
+						</div>
+					</div>
+				</li>
+				<li class="six">
+					<div class="photo">
+						<div class="info-top">
+							<div class="star">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<h4>Paris Trip</h4>
+						</div>
+						<div class="info-foot">
+							<p>
+								<b>6</b>DAYS<b>12</b>CITLES
+							</p>
+						</div>
+					</div>
+				</li>
+				<li class="seven">
+					<div class="photo">
+						<div class="info-top">
+							<div class="star">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<h4>Paris Trip</h4>
+						</div>
+						<div class="info-foot">
+							<p>
+								<b>6</b>DAYS<b>12</b>CITLES
+							</p>
+						</div>
+					</div>
+				</li>
+				<li class="eight">
+					<div class="photo">
+						<div class="info-top">
+							<div class="star">
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<h4>Paris Trip</h4>
+						</div>
+						<div class="info-foot">
+							<p>
+								<b>6</b>DAYS<b>12</b>CITLES
+							</p>
+						</div>
+					</div>
+				</li>
+			</div>
+		</div>
+		<div class="packages">
+			<div class="why">
+				<li>Travel</li>
+				<h2>Packages</h2>
+			</div>
+			<div class="jiangyou">
+				<li>
+					<div class="weekly">
+						<h3>Weekly</h3>
+						<h4>06$</h4>
+						<p class="p">Lorem ipsum dolor sit amet consecuter adsiplining</p>
+						<p><span class="fa fa-check"></span>05 Best Travel Places</p>
+						<p><span class="fa fa-check"></span>Best Tourism Guides</p>
+						<p><span class="fa fa-check"></span>Experienced Travel Agents</p>
+						<p><span class="fa fa-check"></span>06 days Travel Trip</p>
+					</div>
+					<a href="#">Select Plan<span class="fa fa-angle-double-right"></span></a>
+				</li>
+				<li>
+					<div class="weekly">
+						<h3>Monthly</h3>
+						<h4>24$</h4>
+						<p class="p">Lorem ipsum dolor sit amet consecuter adsiplining</p>
+						<p><span class="fa fa-check"></span>05 Best Travel Places</p>
+						<p><span class="fa fa-check"></span>Best Tourism Guides</p>
+						<p><span class="fa fa-check"></span>Experienced Travel Agents</p>
+						<p><span class="fa fa-check"></span>10 days Travel Trip</p>
+					</div>
+					<a href="#">Select Plan<span class="fa fa-angle-double-right"></span></a>
+				</li>
+				<li>
+					<div class="weekly">
+						<h3>Annually</h3>
+						<h4>36$</h4>
+						<p class="p">Lorem ipsum dolor sit amet consecuter adsiplining</p>
+						<p><span class="fa fa-check"></span>05 Best Travel Places</p>
+						<p><span class="fa fa-check"></span>Best Tourism Guides</p>
+						<p><span class="fa fa-check"></span>Experienced Travel Agents</p>
+						<p><span class="fa fa-check"></span>20 days Travel Trip</p>
+					</div>
+					<a href="#">Select Plan<span class="fa fa-angle-double-right"></span></a>
+				</li>
+			</div>
+		</div>
+		<div class="news">
+			<div class="why">
+				<li>Latest</li>
+				<h2>News</h2>
+				<h2>Blog</h2>
+			</div>
+			<div class="magua">
+				<li>
+					<div class="trip">
+						<img src="images/blog.jpg">
+						<h4><span class="fa fa-clock-o"></span>8th Dec, 2018<span class="fa fa-user"></span>John Watson</h4>
+						<a href="#">Boating Trip In A Beach</a>
+						<p>Nulla eu elementum quam. Pellentesque consectetur magna purus, nec facilisis.</p>
+					</div>
+				</li>
+				<li>
+					<div class="trip">
+						<img src="images/blog1.jpg">
+						<h4><span class="fa fa-clock-o"></span>8th Dec, 2018<span class="fa fa-user"></span>John Watson</h4>
+						<a href="#">Vacational Happy Trip</a>
+						<p>Nulla eu elementum quam. Pellentesque consectetur magna purus, nec facilisis.</p>
+					</div>
+				</li>
+				<li>
+					<div class="trip">
+						<img src="images/blog2.jpg">
+						<h4><span class="fa fa-clock-o"></span>8th Dec, 2018<span class="fa fa-user"></span>John Watson</h4>
+						<a href="#">Holiday Trip To Mountains</a>
+						<p>Nulla eu elementum quam. Pellentesque consectetur magna purus, nec facilisis.</p>
+					</div>
+				</li>
+			</div>
+		</div>
+		<div class="want">
+			<div class="book">
+				<div class="small-book">
+					<h1>Do You Want To Go?</h1>
+					<p>Aliquam sodales neque ullamcorper vestibulum consequat. Curabitur mauris justo, rutrum sit
+						amet pulvinar et, rutrum mattis augue. In faucibus orci vitae nulla ipsum. Curabitur mauris
+						justo, rutrum sit amet pulvinar et, rutrum mattis augue. In faucibus orci.
+					</p>
+					<form action="" method="post">
+						<input type="text" name="" id="" value="Full Name" />
+						<input type="text" name="" id="" value="Phone Number" />
+						<input type="submit" value="Submit" />
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="us">
+			<div class="why">
+				<li>Contact</li>
+				<h2>Us</h2>
+			</div>
+			<div class="xianyu">
+				<li>
+					<div class="biaodan">
+						<form action="" method="post">
+							<input type="text" name="" value="Enter Your Name" />
+							<input type="email" name="" value="Enter Your Email" />
+							<input type="text" name="" value="Enter Your Phone Number" />
+							<textarea placeholder="Add Your Message"></textarea>
+							<input type="submit" value="Submit" />
+						</form>
+					</div>
+				</li>
+				<li>
+					<div class="biankuang">
+						<div class="and"></div>
+					</div>
+				</li>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="foot-top">
+				<li>
+					<div class="join">
+						<h3><span class="fa fa-paper-plane"></span>Join Our Newsletter</h3>
+						<p>Get Our Latest News And Special Offers</p>
+					</div>
+				</li>
+				<li>
+					<div class="e-mail">
+						<form action="" method="post">
+							<input type="text" placeholder="Enter your email..." />
+							<input type="submit" value="Subscribe"/>
+						</form>
+					</div>
+				</li>
+			</div>
+			<div class="foot-content">
+				<li>
+					<div class="foot-info">
+						<h5>Who We Are</h5>
+						<h6>10+ Years Of Experience</h6>
+						<p>Integer pulvinar leots idut viver sed feugiat. Pellentesque libero justo orcis
+						 fermentum sit amet consec adipiscing. Ipsum dolor sit amet idut viver sed.
+						</p>
+					</div>
+				</li>
+				<li>
+					<div class="foot-add">
+						<h5>Address Info</h5>
+						<span class="fa fa-map-marker">3481ID Jack Street Beverly Jack Hills 90210, USA</span>
+						<span class="fa fa-envelope"><a href="mailto:name@example.com">	mail@example.com</a></span>
+						<span class="fa fa-phone">+112 367 896 2449</span>
+						<span class="fa fa-clock-o">8:00 a.m - 6:00 p.m</span>
+					</div>
+				</li>
+				<li>
+					<div class="foot-use">
+						<h5>Useful Links</h5>
+						<p><a href="#">About our company</a></p>
+						<p><a href="#">What we do</a></p>
+						<p><a href="#">Best travel places</a></p>
+						<p><a href="#">Team members</a></p>
+						<p><a href="#">Write to us</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="foot-test">
+						<h5>Latest Tweets</h5>
+						<p><span class="fa fa-twitter"></span><a href="#">@example</a>sit amet libero </p>
+						<p>consectetur sed adipiscing libero </p>
+						<p>justo orci sit amet.</p>
+						<p>Posted 2 days ago.</p>
+						<p><span class="fa fa-twitter"></span><a href="#">@example</a>sit amet libero </p>
+						<p>consectetur sed adipiscing libero </p>
+						<p>justo orci sit amet.</p>
+						<p>Posted 4 days ago.</p>
+					</div>
+				</li>
+			</div>
+			<div class="foot-btn">
+				<a href="#"><span class="fa fa-angle-double-up"></span></a>
+			</div>
+			<div class="end">
+				<p>Copyright © 2019.Company name All rights reserved.<a href="#">陈嘉德网页模板</a></p>
+			</div>
+		</div>
+	</body>
+</html>

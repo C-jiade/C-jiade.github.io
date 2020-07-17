@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		body {
+
+			margin: 0px;
+		}
+
+		a:link{
+			text-decoration: none;
+		}
+
+		li {
+			list-style: none;
+		}
+
+		.top {
+			position: relative;
+			top: 20px;
+			width: 1140px;
+			margin: 0 auto;
+			background: rgba(0, 0, 0, 0.41);
+			overflow: hidden;
+		}
+
+		.top ul {
+			float: left;
+			margin: 0;
+			padding: 0;
+		}
+
+		.top ul li {
+			float: left;
+			margin: 0 10px;
+			line-height: 58px;
+		}
+
+		.top ul li:after {
+			/*字体后添加斜杆*/
+			content: '/';
+			font-style: normal;
+			margin-left: 20px;
+			color: white;
+		}
+
+		/*去除最后一个单词的斜杆*/
+		.top ul li:last-child:after {
+			content: none;
+		}
+
+		.top ul li a {
+			/*去除文本下划线*/
+			color: white;
+			/*过度效果 all为所有元素后面跟时间*/
+			transition: all .3s;
+		}
+
+		/*鼠标放上去时改变字体样式*/
+		.top ul li a:hover {
+			color: #FAEE0D;
+			border-top: 4px solid #FAEE0D;
+		}
+
+		/*设置第一个字体默认样式*/
+		.top ul li:first-child a {
+			color: #FAEE0D;
+			border-top: 4px solid #FAEE0D;
+		}
+
+		.top form {
+			position: relative;
+			top: 0;
+			left: 0;
+			float: right;
+			margin-right: 10px;
+			margin-top: 13px;
+		}
+
+		.top form input {
+			height: 32px;
+			color: white;
+			background: none;
+			font-size: 14px;
+			border: 1px solid white;
+			padding: 0 10px;
+
+		}
+
+		.top form input:last-child {
+			padding: 0;
+			height: 22px;
+			width: 22px;
+			background: url(images/search.png);
+			background-position: center;
+			border: none;
+			position: absolute;
+			top: 6px;
+			right: 6px;
+		}
+
+		.header {
+			background: url(images/banner.jpg);
+			/*缩放图像，使其适应指定背景大小*/
+			background-size: cover;
+		}
+
+		.header h1 {
+			position: relative;
+			text-align: center;
+			color: white;
+			top: 50px;
+		}
+
+		.header h1 span {
+			border-top: 2px solid white;
+			border-bottom: 2px solid white;
+		}
+
+		.content {
+			position: relative;
+			top: 150px;
+			width: 1140px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+
+		.content li {
+			width: 25%;
+			float: left;
+
+		}
+
+		.content li .card {
+			background: #16A667;
+			text-align: center;
+			margin: 0 10px;
+			color: white;
+			padding: 30px 20px;
+		}
+
+		.content li .card img {
+			border: 8px solid white;
+			border-radius: 50%;
+			padding: 10px;
+		}
+
+		.content li .card img:hover {
+			transform: rotateY(360deg);
+			transition: all .8s;
+		}
+
+		.body {
+			background: gainsboro;
+		}
+
+		.body h1 {
+			width: 1140px;
+			margin: 0 auto;
+			padding-top: 180px;
+			padding-bottom: 30px;
+		}
+
+		.body .row {
+			width: 1140px;
+			margin: 0 auto;
+			position: relative;
+			padding-bottom: 50px;
+		}
+
+		.row .photo {
+			width: 40%;
+		}
+
+		.row .photo img {
+			width: 95%;
+		}
+
+		.row .text {
+			position: absolute;
+			margin: 0 auto;
+			width: 60%;
+			line-height: 30px;
+			font-size: 14px;
+			top: 0;
+			right: 3px;
+		}
+
+		.services {
+			background: #303030;
+		}
+
+		.services h1 {
+			width: 1140px;
+			margin: 0 auto;
+			color: white;
+			padding-top: 50px;
+			padding-bottom: 30px;
+		}
+
+		.picture {
+			overflow: hidden;
+			width: 1140px;
+			margin: 0 auto;
+			padding-bottom: 100px;
+		}
+
+		.picture li {
+			width: 30%;
+			float: left;
+			margin-left: 30px;
+		}
+
+		.picture li .small {
+			text-align: center;
+		}
+
+		.picture li .small h3 {
+			color: white;
+		}
+
+		.picture li .small p {
+			color: #878787;
+		}
+
+		.picture li .small img {
+			background: #16A667;
+			border-radius: 20%;
+			padding:10px 15px;
+		}
+
+		.picture li .small img:hover {
+			background: orange;
+		}
+
+		.works {
+			background: #EBEBEB;
+		}
+
+		.works h1 {
+			width: 1140px;
+			margin: 0 auto;
+			padding: 40px 0;
+		}
+
+		.works .p {
+			overflow: hidden;
+			width: 1140px;
+			margin: 0 auto;
+			padding-bottom: 50px;
+		}
+
+		.works .p li {
+			line-height: 0;
+			width: 25%;
+			float: left;
+			position: relative;
+		}
+
+		.works .p li .tree {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.2);
+			top: 0;
+			left: 0;
+			/*小树水平居中*/
+			text-align: center;
+			overflow: hidden;
+
+			/*阴影*/
+			box-shadow: 0px 0px 20px 0px white;
+			transform: scale(0);
+			transition: all 1s;
+		}
+
+		.works .p li .tree img {
+			width: 100px;
+			display: inline-block;
+			/*小树垂直居中：定位50%，在往上挪图片高度的一半*/
+			position: relative;
+			top: 50%;
+			margin-top: -50px;
+		}
+
+		.works .p li:hover .tree {
+			transform: scale(1);
+		}
+
+		.news h1 {
+			width: 1140px;
+			margin: 0 auto;
+			padding: 30px 0;
+		}
+
+		.news .father {
+			overflow: hidden;
+			width: 1140px;
+			margin: 0 auto;
+		}
+
+		.news .father li {
+			width: 30%;
+			float: left;
+			margin: 0 15px;
+		}
+
+		.news .father li .son img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.news .father li .son a {
+			text-decoration: none;
+			color: black;
+		}
+
+		.news .father li .son p {
+			line-height: 5px;
+		}
+
+		.news .father li .son span {
+			color: gray;
+			font-size: 14px;
+		}
+
+		.news .father li .btn {
+			line-height: 36px;
+			width: 100px;
+			position: relative;
+			text-align: center;
+			top: 0;
+			left: 0;
+			margin-top: 25px;
+			margin-bottom: 45px;
+		}
+
+		.news .father li .btn a {
+			text-decoration: none;
+			color: white;
+			height: 100%;
+			width: 100%;
+			display: block;
+		}
+
+		.news .father li .btn .read {
+			font-size: 17px;
+			color: white;
+			display: block;
+			height: 100%;
+			width: 100%;
+			position: relative;
+
+			z-index: 1;
+		}
+
+		.news .father li .btn:hover .more {
+			transform: rotateX(90deg);
+		}
+
+		.news .father li .btn .more {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: green;
+			transition: all 1s;
+		}
+
+		.news .father li .btn .bg {
+			background: orange;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+
+		.us {
+			height: 400px;
+			background: #333333;
+		}
+
+		.us .big {
+			height: 100%;
+			width: 1140px;
+			margin: 0 auto;
+			position: relative;
+
+		}
+
+		.us .big .come {
+			position: relative;
+			width: 33%;
+		}
+
+		.us .come h1 {
+			padding-top: 50px;
+			color: white;
+		}
+
+		.us .come .one {
+			width: 100%;
+			position: relative;
+			margin-bottom: 10px;
+		}
+
+		.us .come .one .left {
+			width: 20%
+		}
+
+		.us .come .one .left img {
+			width: 100%;
+			height: 100%;
+
+		}
+
+		.us .come .one .right {
+			position: absolute;
+			width: 70%;
+			height: 75px;
+			top: -16px;
+			left: 85px;
+			float: left;
+		}
+
+		.us .come .one .right a {
+			text-decoration: none;
+		}
+
+		.us .come .one .right h3 {
+			color: white;
+			line-height: 20px;
+			font-size: 16px;
+			transition: all 1s;
+		}
+
+		.us .come .one .right a:hover h3 {
+			color: orange;
+		}
+
+		.us .come .one .right p {
+			line-height: 20px;
+			font-size: 14px;
+			margin: 0;
+			color: #999;
+		}
+
+		.us .big .Categories {
+			width: 33%;
+			position: relative;
+			top: -345px;
+			left: 400px;
+
+		}
+
+		.us .big .Categories h1 {
+			color: white;
+		}
+
+		.us .big .Categories .littie a {
+			text-decoration: none;
+		}
+
+		.us .big .Categories .littie p {
+			position: relative;
+			top: -5px;
+			width: 320px;
+			padding-left: 20px;
+			color: #999;
+			transition: all 1s;
+		}
+
+		.us .big .Categories .littie a:hover p {
+			color: orange;
+		}
+
+		.us .big .Categories .littie .icon {
+			width: 10px;
+			height: 14px;
+			background: url(images/list-arrow.png) no-repeat 0px;
+			position: absolute;
+			display: inline-block;
+		}
+
+		.us .big .contact {
+			width: 33%;
+			position: absolute;
+			top: 25px;
+			right: -70px;
+		}
+
+		.us .big .contact h1 {
+			color: white;
+		}
+
+		.us .big .contact span {
+			color: #999;
+		}
+
+		.us .big .contact>div {
+			margin-bottom: 30px;
+		}
+
+		.us .big .contact .phone {
+			margin: 0;
+			width: 40px;
+			height: 40px;
+			background: url(images/img-sprite1.png) no-repeat -220px 2px;
+			display: inline-block;
+			position: absolute;
+		}
+
+		.us .big .contact .add {
+			margin: 0;
+			width: 40px;
+			height: 40px;
+			background: url(images/img-sprite1.png) no-repeat -260px 2px;
+			display: inline-block;
+			position: absolute;
+		}
+
+		.us .big .contact .email {
+			margin: 0;
+			width: 40px;
+			height: 40px;
+			background: url(images/img-sprite1.png) no-repeat -300px 2px;
+			display: inline-block;
+			position: absolute;
+			transition: all 1s;
+		}
+
+		.us .big .contact .text {
+			padding-left: 50px;
+			position: relative;
+		}
+
+		.us .big .contact .move span {
+			transition: all 1s;
+		}
+
+		.us .big .contact .move a:hover span {
+			color: orange;
+		}
+
+		.footer {
+			background: #EBEBEB;
+		}
+
+		.footer .icons {
+			width: 1140px;
+			margin: 0 auto;
+			height: 55px;
+			position: relative;
+			text-align: center;
+			padding-top: 70px;
+		}
+
+		.footer .icons .f {
+			width: 55px;
+			height: 55px;
+			background: url(images/img-sprite1.png) no-repeat 0px 0px;
+			position: absolute;
+			left: 40%;
+		}
+
+		.footer .icons .t {
+			width: 55px;
+			height: 55px;
+			background: url(images/img-sprite1.png) no-repeat -55px 0px;
+			position: absolute;
+			left: 47%;
+		}
+
+		.footer .icons .g {
+			width: 55px;
+			height: 55px;
+			background: url(images/img-sprite1.png) no-repeat -110px 0px;
+			position: absolute;
+			left: 54%;
+		}
+
+		.footer .icons .b {
+			width: 55px;
+			height: 55px;
+			background: url(images/img-sprite1.png) no-repeat -165px 0px;
+			position: absolute;
+			left: 61%;
+		}
+		.footer .word{
+			width: 1140px;
+			margin: 0 auto;
+			height: 55px;
+			position: relative;
+			text-align: center;
+			padding-top:20px;
+		}
+		 .word ul{
+			width:100%;
+			height:100%; 
+			margin:0;
+			padding: 0;
+			position:relative;
+		}
+		 .word ul li{
+			float: left;
+			margin: 0 20px;
+			position:relative;
+			left: 305px;
+			color: black;
+		}
+		.end{
+			padding-bottom:50px;
+		}
+		.end p{
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		.end p a{
+			font-size:20px;
+			text-decoration: none;
+			color:#16A667;
+		}
+	</style>
+	<body>
+		<div class="header">
+			<div class="top">
+				<ul class="left">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Products</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+				<form action="" method="post">
+					<input type="text" value="Searce.." />
+					<input type="submit" value="" />
+				</form>
+			</div>
+			<h1><span>Cultivation</span></h1>
+			<div class="content">
+				<li>
+					<div class="card">
+						<img src="images/icon4.png" />
+						<h3>Dolor nunc vule</h3>
+						<p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet
+							velit justo, in ven e natis purus.</p>
+					</div>
+				</li>
+				<li>
+					<div class="card">
+						<img src="images/icon5.png" />
+						<h3>Dolor nunc vule</h3>
+						<p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet
+							velit justo, in ven e natis purus.</p>
+					</div>
+				</li>
+				<li>
+					<div class="card">
+						<img src="images/icon6.png" />
+						<h3>Dolor nunc vule</h3>
+						<p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet
+							velit justo, in ven e natis purus.</p>
+					</div>
+				</li>
+				<li>
+					<div class="card">
+						<img src="images/icon7.png" />
+						<h3>Dolor nunc vule</h3>
+						<p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet
+							velit justo, in ven e natis purus.</p>
+					</div>
+				</li>
+			</div>
+		</div>
+		<div class="body">
+			<h1>About us</h1>
+			<div class="row">
+				<div class="photo">
+					<img src="images/img1.jpg">
+				</div>
+				<div class="text">
+					<p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet
+						velit justo, in ven e natis purus pretium sit amet. Praesent lectus tortor, tincidu
+						nt in consectetur vestibulum, ultrices nec neque. Praesent nec sagittis mauris.
+						Fusce convallis nunc neque. Integer egestas aliquam interdum. Nulla ante diam,
+						interdum nec tempus eu, feugiat vel erat.Cras consequat iaculis lorem, id vehicula
+						erat mattis quis.Cras consequat iaculis lorem, id vehicula erat mattis. Integer
+						egestas aliquam interdum. Nulla ante diam,</p>
+					<p>lorem,Cras consequat iaculis id vehicula erat mattis quis. Vivamus laoreet velit
+						justo, in ven e natis purus pretium sit amet. Praesent lectus tortor, tincidu nt in
+						consectetur vestibulum, ultrices nec neque. Praesent nec sagittis mauris. Fusce
+						convallis nunc neque. Integer egestas aliquam interdum. Nulla ante diam, interdum
+						nec tempus eu, feugiat vel erat.Cras consequat iaculis lorem, id vehicula erat mattis
+						quis.Cras consequat iaculis lorem, id vehicula erat mattis.</p>
+				</div>
+			</div>
+		</div>
+		<div class="services">
+			<h1>Our Services</h1>
+			<div class="picture">
+				<li>
+					<div class="small">
+						<img src="images/icon1.png">
+						<h3>Dolor nunc vule putateulr</h3>
+						<p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet velit justo,
+							in ven e natis purus.Praesent nec sagittis mauris. Fusce convallis nunc neque.Integer egestas.
+							Vivamus laoreet velit justo</p>
+					</div>
+				</li>
+				<li>
+					<div class="small">
+						<img src="images/icon2.png">
+						<h3>Dolor nunc vule putateulr</h3>
+						<p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet velit justo,
+							in ven e natis purus.Praesent nec sagittis mauris. Fusce convallis nunc neque.Integer egestas.
+							Vivamus laoreet velit justo</p>
+					</div>
+				</li>
+				<li>
+					<div class="small">
+						<img src="images/icon3.png">
+						<h3>Dolor nunc vule putateulr</h3>
+						<p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet velit justo,
+							in ven e natis purus.Praesent nec sagittis mauris. Fusce convallis nunc neque.Integer egestas.
+							Vivamus laoreet velit justo</p>
+					</div>
+				</li>
+			</div>
+		</div>
+		<div class="works">
+			<h1>Our Latest Works</h1>
+			<div class="p">
+				<li><img src="images/img2.jpg">
+					<div class="tree">
+						<img src="images/magnify.png">
+					</div>
+				</li>
+				<li><img src="images/img3.jpg">
+					<div class="tree">
+						<img src="images/magnify.png">
+					</div>
+				</li>
+				<li><img src="images/img4.jpg">
+					<div class="tree">
+						<img src="images/magnify.png">
+					</div>
+				</li>
+				<li><img src="images/img5.jpg">
+					<div class="tree">
+						<img src="images/magnify.png">
+					</div>
+				</li>
+				<li><img src="images/img6.jpg">
+					<div class="tree">
+						<img src="images/magnify.png">
+					</div>
+				</li>
+				<li><img src="images/img7.jpg">
+					<div class="tree">
+						<img src="images/magnify.png">
+					</div>
+				</li>
+				<li><img src="images/img8.jpg">
+					<div class="tree">
+						<img src="images/magnify.png">
+					</div>
+				</li>
+				<li><img src="images/img9.jpg">
+					<div class="tree">
+						<img src="images/magnify.png">
+					</div>
+				</li>
+			</div>
+		</div>
+		<div class="news">
+			<h1>Latest News</h1>
+			<div class="father">
+				<li>
+					<div class="son">
+						<img src="images/img10.jpg">
+						<p style="font-size: 22px;"><a href="#"><b>Dolor nunc vule putateulr</b></a></p>
+						<p style="font-size:15px"><span>March 23rd, 2015</span><a href="#"> 5 Comments</a></p>
+						<span>Praesent vestim molestie lacus. Aenean nonummy hendrerit
+							mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et
+							magnis dis parturient montes, nascetur ridiculus mus.</span>
+						<div class="btn">
+							<div class="read">
+								<a href="#">Read More</a>
+							</div>
+							<div class="more"></div>
+							<div class="bg"></div>
+						</div>
+					</div>
+
+				</li>
+				<li>
+					<div class="son">
+						<img src="images/img11.jpg">
+						<p style="font-size: 22px;"><a href="#"><b>Dolor nunc vule putateulr</b></a></p>
+						<p style="font-size:15px"><span>March 23rd, 2015</span><a href="#"> 5 Comments</a></p>
+						<span>Praesent vestim molestie lacus. Aenean nonummy hendrerit
+							mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et
+							magnis dis parturient montes, nascetur ridiculus mus.</span>
+						<div class="btn">
+							<div class="read">
+								<a href="#">Read More</a>
+							</div>
+							<div class="more"></div>
+							<div class="bg"></div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="son">
+						<img src="images/img12.jpg">
+						<p style="font-size: 22px;"><a href="#"><b>Dolor nunc vule putateulr</b></a></p>
+						<p style="font-size:15px"><span>March 23rd, 2015</span><a href="#"> 5 Comments</a></p>
+						<span>Praesent vestim molestie lacus. Aenean nonummy hendrerit
+							mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et
+							magnis dis parturient montes, nascetur ridiculus mus.</span>
+						<div class="btn">
+							<div class="read">
+								<a href="#">Read More</a>
+							</div>
+							<div class="more"></div>
+							<div class="bg"></div>
+						</div>
+					</div>
+				</li>
+			</div>
+		</div>
+		<div class="us">
+			<div class="big">
+				<div class="come">
+					<h1>Upcome Events</h1>
+					<div class="one">
+						<div class="left">
+							<img src="images/im1.jpg">
+						</div>
+						<div class="right">
+							<a href="#">
+								<h3>sagittis magna</h3>
+							</a>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+					</div>
+					<div class="one">
+						<div class="left">
+							<img src="images/im2.jpg">
+						</div>
+						<div class="right">
+							<a href="#">
+								<h3>Integer molest</h3>
+							</a>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+					</div>
+					<div class="one">
+						<div class="left">
+							<img src="images/im3.jpg">
+						</div>
+						<div class="right">
+							<a href="#">
+								<h3>Fusce suscipit</h3>
+							</a>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+					</div>
+				</div>
+				<div class="Categories">
+					<h1>Categories</h1>
+					<div class="littie">
+						<a href="#">
+							<div class="icon"></div>
+							<p>Praesent vestim molestie lacus.</p>
+						</a>
+						<a href="#">
+							<div class="icon"></div>
+							<p>Cras consequat iaculis lorem</p>
+						</a>
+						<a href="#">
+							<div class="icon"></div>
+							<p>Consectetur adipiscing iaculis</p>
+						</a>
+						<a href="#">
+							<div class="icon"></div>
+							<p>Lorem ipsum dolor sit</p>
+						</a>
+						<a href="#">
+							<div class="icon"></div>
+							<p>Cum sociis natoque penatibus et magnis</p>
+						</a>
+						<a href="#">
+							<div class="icon"></div>
+							<p>Integer molestie lorem</p>
+						</a>
+						<a href="#">
+							<div class="icon"></div>
+							<p>lorem,Cras consequat iaculis id vehicula</p>
+						</a>
+					</div>
+				</div>
+				<div class="contact">
+					<h1>Contact</h1>
+					<div class="phone"></div>
+					<div class="text">
+						<span>1-000-000-0000</span><br>
+						<span>1-000-000-0000</span>
+					</div>
+					<div class="add"></div>
+					<div class="text">
+						<span>Seventh Avenue</span><br>
+						<span>Chelsea, Manhattan</span>
+					</div>
+					<div class="email"></div>
+					<div class="text move">
+						<a href="#"><span>bcdefg@hijs.dfh</span></a><br>
+						<a href="#"><span>fjashfaf@jkfs.ckd</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="icons">
+				<a href="#">
+					<div class="f"></div>
+				</a>
+				<a href="#">
+					<div class="t"></div>
+				</a>
+				<a href="#">
+					<div class="g"></div>
+				</a>
+				<a href="#">
+					<div class="b"></div>
+				</a>
+			</div>
+			<div class="word">
+				<ul>
+					<a href="#"><li>Home</li></a>
+					<a href="#"><li>About</li></a>
+					<a href="#"><li>Services</li></a>
+					<a href="#"><li>Products</li></a>
+					<a href="#"><li>Blog</li></a>
+					<a href="#"><li>Contact</li></a>
+				</ul>
+			</div>
+			<div class="end">
+				<p>Copyright © 2015.Company name All rights reserved.More Templates <a href="#">版权所有</a>- Collect from <a href="#">陈嘉德网页模板</a></p>
+			</div>
+		</div>
+	</body>
+
+</html>
