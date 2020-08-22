@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		/* 京东放大镜 */
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.box {
+			margin-Left: 360px;
+			margin-top: 50px;
+			position: relative;
+		}
+
+		.box .middleBox {
+			width: 450px;
+			height: 450px;
+			border: 1px solid #eeeeee;
+		}
+
+		.box .middleBox .mask {
+			width: 200px;
+			height: 200px;
+			background: rgba(254, 222, 79, 0.5);
+			position: absolute;
+			Left: 0;
+			top: 0;
+			/*鼠标指针为移动*/
+			cursor: move;
+			display: none;
+		}
+
+		.box .bigBox {
+			width: 540px;
+			height: 540px;
+			border: 1px solid #eeeeee;
+			overflow: hidden;
+			position: absolute;
+			Left: 451px;
+			top: 0;
+			display: none;
+		}
+
+		/* 小盒子样式开始 */
+		.box .smallBox {
+			overflow: hidden;
+			width: 455px;
+			margin-top: 15px;
+		}
+
+		.box .smallBox>div {
+			float: left;
+			margin-right: 21px;
+			cursor: pointer;
+		}
+
+		.box .smallBox .one {
+			border: 1px solid red;
+		}
+
+		/* 原地放大 */
+		.blowup {
+			width: 300px;
+			height: 300px;
+			position: relative;
+			margin: 20px;
+			cursor: crosshair;
+
+		}
+
+		.blowup img {
+			width: 100%;
+		}
+
+		.blowup .zoom {
+			width: 150px;
+			height: 150px;
+			/* background: url('./img/a1.png'); */
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			border: 5px solid white;
+			/* background-size: 1000px 1000px; */
+			/* opacity: 0.3; */
+			border-radius: 50%;
+			background-repeat: no-repeat;
+			box-sizing: border-box;
+		}
+	</style>
+
+
+</head>
+
+<body>
+
+	<!-- 京东放大镜 -->
+	<!--最外层盒子-->
+	<div class="box">
+		<!--中盒子-->
+		<div class="middleBox">
+			<img src="img/1_middle.jpg" />
+			<!--遮罩层-->
+			<div class="mask"></div>
+		</div>
+		<div class="smallBox">
+			<div class=one><img src="img/1_small.jpg" /></div>
+			<div class=two><img src="img/2_small.jpg" /></div>
+			<div class=three><img src="img/3_small.jpg" /></div>
+			<div class=four><img src="img/4_small.jpg" /></div>
+			<div class=five><img src="img/5_small.jpg" /></div>
+			<div class=six><img src="img/6_small.jpg" /></div>
+		</div>
+		<div class="bigBox">
+			<img src="img/1_big.jpg" />
+		</div>
+	</div>
+
+
+
+
+	<!-- 原地放大 -->
+	<div class="stage">
+		<div class="blowup left">
+			<img src="./img/a1.png" alt="">
+		</div>
+
+		<div class="blowup right">
+			<img src="./img/a2.png" alt="">
+		</div>
+
+	</div>
+
+	<!-- <style>
+		.right {
+			width: 500px;
+			height: 500px;
+		}
+	</style> -->
+	<script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
+
+	<script>
+		//京东放大镜
+		var middleBox = document.querySelector(".middleBox");
+		var middleImg = document.querySelector(".middleBox img");
+		var bigBox = document.querySelector(".bigBox");
+		//每一张小照片对象
+		var smallImg = document.querySelectorAll(".smallBox img");
+		//每一个小盒子对象
+		var smallDiv = document.querySelectorAll(".smallBox div");
+		//大照片对象
+		var bigImg = document.querySelector(".bigBox img");
+		//遮罩层对象
+		var mask = document.querySelector(".mask");
+		//最外层盒子对象
+		var box = document.querySelector(".box");
+		// 1.鼠标移.上小盒子以后,显示大盒子，显示遮罩层
+		middleBox.onmouseover = function () {
+			bigBox.style.display = "block";
+			mask.style.display = "block";
+		}
+		middleBox.onmouseout = function () {
+			bigBox.style.display = "none";
+			mask.style.display = "none";
+		}
+		//3.鼠标可以在小盒子里面移动，遮罩层跟随鼠标移动，并且鼠标在迪罩层的中间
+		middleBox.onmousemove = function (e) {
+			var maskX = e.pageX - box.offsetLeft;
+			var maskY = e.pageY - box.offsetTop;
+			//让鼠标在遮罩层的中间显示
+			maskX = maskX - mask.offsetWidth / 2;
+			maskY = maskY - mask.offsetHeight / 2;
+			//4.鼠标在小盒子中移动的时候，遮罩层不能超出小盒子(需要设置边界值)
+			if (maskX < 0) { // 左边界
+				maskX = 0;
+			} else if (maskX > middleBox.offsetWidth - mask.offsetWidth) { // 右边界
+				maskX = middleBox.offsetWidth - mask.offsetWidth;
+			}
+			if (maskY < 0) { //. 上边界
+				maskY = 0;
+			} else if (maskY > middleBox.offsetHeight - mask.offsetHeight) { // 下边界
+				maskY = middleBox.offsetHeight - mask.offsetHeight;
+			}
+			//设置遮罩层的偏移量
+			mask.style.left = maskX + "px";
+			mask.style.top = maskY + "px";
+			//5.鼠标在小盒子中移动的时候，大盒子里面的图片也要相应移动
+			var bigMaxDis = bigImg.offsetWidth - bigBox.offsetWidth;
+			//遮挡层的最大移动距离
+			var maskMaxDis = middleBox.offsetWidth - mask.offsetWidth;
+			//大图片的移动的水平距离
+			var bigImgX = maskX * bigMaxDis / maskMaxDis;
+			//大图片的移动的垂直距离
+			var bigImgY = maskY * bigMaxDis / maskMaxDis;
+			//设置大图片的偏移量
+			bigImg.style.position = "absolute";
+			bigImg.style.left = -bigImgX + "px";
+			bigImg.style.top = -bigImgY + "px";
+		}
+
+		//每一个小盒子设置点击事件
+		for (var a = 0; a < smallDiv.length; a++) {
+			smallDiv[a].onclick = function () {
+				for (var b = 0; b < smallDiv.length; b++) {
+					smallDiv[b].style.border = "none";
+
+				}
+				this.style.border = "1px solid red";
+				if (this.className == "one") {
+					bigImg.src = "img/1_big.jpg";
+					middleImg.src = "img/1_middle.jpg";
+
+				} else if (this.className == "two") {
+					bigImg.src = "img/2_big.jpg";
+					middleImg.src = "img/2_middle.jpg";
+				} else if (this.className == "three") {
+					bigImg.src = "img/3_big.jpg";
+					middleImg.src = "img/3_middle.jpg";
+				} else if (this.className == "four") {
+					bigImg.src = "img/4_big.jpg";
+					middleImg.src = "img/4_middle.jpg";
+				} else if (this.className == "five") {
+					bigImg.src = "img/5_big.jpg";
+					middleImg.src = "img/5_middle.jpg";
+				} else if (this.className == "six") {
+					bigImg.src = "img/6_big.jpg";
+					middleImg.src = "img/6_middle.jpg";
+				}
+
+			}
+		}
+
+
+
+		// 原地放大
+		function blowup(jQueryObj, zoomLevel) {
+			var zoom = zoomLevel
+			jQueryObj.append('<div class="zoom"></div>')
+
+			// console.log($('.left').height())
+			jQueryObj.find('.zoom').css({
+				backgroundImage: 'url(' + jQueryObj.find('img').attr('src') + ')',
+				backgroundSize: jQueryObj.width() * zoomLevel + 'px ' + jQueryObj.height() * zoomLevel + 'px'
+			})
+
+			jQueryObj.on('mousemove', function (event) {
+				// console.log(event.pageX, event.pageY)
+				// $('.left').offset()
+
+				// 鼠标的指针位置
+				var x = event.pageX - $(this).offset().left
+				var y = event.pageY - $(this).offset().top
+
+				console.log(x, y)
+				$(this).find('.zoom').show()
+
+				if (x > jQueryObj.width() || x < 0 || y >= jQueryObj.height() || y < 0) {
+					$(this).find('.zoom').hide()
+					return
+				}
+				var zoomSize = {
+					w: $(this).find('.zoom').outerWidth(),
+					h: $(this).find('.zoom').outerHeight()
+				}
+
+				$(this).find('.zoom').css({
+					left: x - zoomSize.w / 2 + 'px',
+					top: y - zoomSize.h / 2 + 'px',
+					backgroundPositionX: -(x * zoomLevel - zoomSize.w / 2) + 'px',
+					backgroundPositionY: -(y * zoomLevel - zoomSize.h / 2) + 'px',
+				})
+			})
+		}
+
+		blowup($('.left'), 2)
+
+		blowup($('.right'), 2)
+	</script>
+</body>
+
+</html>
