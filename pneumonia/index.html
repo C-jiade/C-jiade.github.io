@@ -651,7 +651,7 @@
 
 
     //全国跟全球
-    http.get('http://api.tianapi.com/txapi/ncov/index?key=456e3dfbd0b904716ef5fdca65218834').then(result => {
+    http.get('https://api.tianapi.com/txapi/ncov/index?key=456e3dfbd0b904716ef5fdca65218834').then(result => {
       result = JSON.parse(result);
       // console.log(result.newslist);
       result.newslist.forEach(element => {
@@ -706,7 +706,7 @@
       var day = yesterday.getDate();
       yesterday = yesterday.getFullYear() + "-" + (yesterday.getMonth() > 9 ? (yesterday.getMonth() + 1) : "0" + (yesterday.getMonth() + 1)) + "-" + (yesterday.getDate() > 9 ? (yesterday.getDate()) : "0" + (yesterday.getDate()));
 
-      http.get('http://api.tianapi.com/txapi/ncovabroad/index?key=456e3dfbd0b904716ef5fdca65218834&date=' + yesterday).then(result => {
+      http.get('https://api.tianapi.com/txapi/ncovabroad/index?key=456e3dfbd0b904716ef5fdca65218834&date=' + yesterday).then(result => {
         result = JSON.parse(result);
         // console.log(result)
         result.newslist.forEach(element => {
@@ -743,7 +743,7 @@
     }
 
     //海外
-    http.get('http://api.tianapi.com/txapi/ncovabroad/index?key=456e3dfbd0b904716ef5fdca65218834').then(result => {
+    http.get('https://api.tianapi.com/txapi/ncovabroad/index?key=456e3dfbd0b904716ef5fdca65218834').then(result => {
       result = JSON.parse(result);
 
       result.newslist.forEach(element => {
