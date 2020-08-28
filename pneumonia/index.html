@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #c0c0c0;
+    }
+
+    a:hover {
+      color: #c2130e;
+    }
+
+    body {
+      font-size: 12px;
+    }
+
+    .box {
+      width: 320px;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .box .top {
+      height: 20px;
+      line-height: 20px;
+      border-bottom: 3px solid #c2130e;
+    }
+
+    .box .top span {
+      width: 100px;
+      text-align: center;
+      display: block;
+      float: left;
+      color: #000000;
+      font-weight: bold;
+    }
+
+    .box .top ul li {
+      float: left;
+      width: 50px;
+      margin-right: 1px;
+      text-align: center;
+      background: #dcdcdc;
+    }
+
+    .box .top ul li a {
+      color: #000000;
+      display: block;
+    }
+
+    .box .top ul li.topover {
+      background: #c2130e;
+    }
+
+    .box .top ul li.topover a {
+      color: #ffffff;
+    }
+
+    .box .content {
+      display: none;
+    }
+
+    .box .content .info {
+      margin-top: 20px;
+    }
+
+    .box .content .info li {
+      height: 27px;
+      line-height: 27px;
+    }
+
+    .box .content .more {
+      float: right;
+    }
+
+    .box .content.show {
+      display: block;
+    }
+
+
+    .box .content .china .china-top {
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .box .content .china .china-top li {
+      margin: 0 15px;
+      float: left;
+      line-height: 28px;
+      letter-spacing: 1px;
+      width: 74px;
+    }
+
+    /* 省数据 */
+    .box .content .chinaContent ul {
+      overflow: hidden;
+    }
+
+    .box .content .chinaContent .chinaInfo li {
+      float: left;
+
+    }
+
+    .box .content .chinaContent .chinaInfo {
+      background-color: #ddd;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+
+    .box .content .chinaContent .chinaInfo li:nth-child(1) {
+      width: 48px;
+    }
+
+    /* 城市数据 */
+
+    .box .content .chinaContent div {
+      cursor: pointer;
+    }
+
+    .box .content .chinaContent .cityInfo {
+      overflow: hidden;
+      padding: 10px;
+      border-radius: 30px;
+      border-bottom: 1px solid #ddd;
+      display: none;
+    }
+
+    .box .content .chinaContent .cityBlock {
+      overflow: hidden;
+      padding: 10px;
+      border-radius: 10px;
+      border-bottom: 1px solid #ddd;
+      display: block;
+    }
+
+
+    .box .content .chinaContent .cityInfo li {
+      float: left;
+      margin-right: 23px;
+      width: 29px;
+    }
+
+    .box .content .chinaContent .cityInfo li:nth-child(1) {
+      width: 48px;
+    }
+
+    /* 地区 */
+    .box .content .address {
+      margin-top: 20px;
+      padding-left: 10px;
+    }
+
+    .box .content .address li {
+      font-weight: 600;
+      float: left;
+      width: 48px;
+    }
+
+    .box .content .address li:nth-child(2) {
+      color: red;
+      margin-left: 10px;
+    }
+
+    .box .content .address li:nth-child(3) {
+      color: rgb(133, 14, 14);
+      margin-left: 10px;
+    }
+
+    .box .content .address li:nth-child(4) {
+      color: gray;
+      margin-left: 10px;
+    }
+
+    .box .content .address li:nth-child(5) {
+      color: green;
+    }
+
+    .box .content .chinaInfo li {
+      margin-right: 23px;
+      width: 29px;
+    }
+
+    /* 海外 */
+    .overArea {
+      margin-top: 20px;
+      overflow: hidden;
+      padding-left: 10px;
+    }
+
+    .overseas .overArea li {
+      float: left;
+      font-weight: 600;
+      width: 48px;
+    }
+
+    .box .content .overArea li:nth-child(2) {
+      color: red;
+      margin-left: 10px;
+    }
+
+    .box .content .overArea li:nth-child(3) {
+      color: rgb(133, 14, 14);
+      margin-left: 15px;
+    }
+
+    .box .content .overArea li:nth-child(4) {
+      color: gray;
+      margin-left: 15px;
+    }
+
+    .box .content .overArea li:nth-child(5) {
+      color: green;
+    }
+
+    /* 各大洲 */
+    .bmz,
+    .nmz,
+    .yz,
+    .oz,
+    .fz,
+    .dyz {
+      background-color: #ddd;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .bmz li,
+    .nmz li,
+    .yz li,
+    .oz li,
+    .fz li,
+    .dyz li {
+      float: left;
+      margin-right: 8px;
+      width: 50px;
+    }
+
+    .overseasInfo {
+      overflow: hidden;
+      margin-top: 10px;
+      background-color: skyblue;
+      padding: 10px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .overseasInfoBlock {
+      overflow: hidden;
+      margin-top: 10px;
+      background-color: skyblue;
+      padding: 10px;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .continent {
+      cursor: pointer;
+    }
+
+    .continent .overseasInfo li {
+      float: left;
+      margin-right: 8px;
+      width: 50px;
+    }
+
+    /* 全球 */
+    .global .global-top {
+      margin-top: 20px;
+      line-height: 28px;
+      overflow: hidden;
+    }
+
+    .global .global-top .span {
+      margin-left: 20px;
+    }
+
+    .global .global-top li {
+      float: left;
+      width: 100px;
+      border-right: 1px solid #ddd;
+    }
+
+    .global .global-top li p {
+      font-size: 12px;
+      margin-left: 3px;
+    }
+
+    .global .global-top .one p span {
+      color: rgb(133, 14, 14);
+      font-weight: 600;
+    }
+
+    .global .global-top .two p span {
+      color: rgb(56, 55, 55);
+      font-weight: 600;
+    }
+
+    .global .global-top .three p span {
+      color: green;
+      font-weight: 600;
+    }
+
+    .global .global-top .four p span,
+    .global .global-top .five p span,
+    .global .global-top .six p span {
+      color: rgb(133, 14, 14);
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="top">
+      <span>疫情监控</span>
+      <ul id='topUl'>
+        <li class='topover'><a href="#">国内</a></li>
+        <li><a href="#">海外</a></li>
+        <li><a href="#">全球</a></li>
+      </ul>
+    </div>
+    <div class="content show">
+      <div class="china">
+        <ul class="c-top china-top">
+          <li class="one">
+            <h2></h2>
+            <span>累计确诊</span>
+            <p>较上日</p>
+          </li>
+          <li class="two">
+            <h2></h2>
+            <span>现有确诊</span>
+            <p>较上日</p>
+          </li>
+          <li class="three">
+            <h2></h2>
+            <span>重症病例</span>
+            <p>较上日</p>
+          </li>
+        </ul>
+
+        <ul class="c-bottom china-top">
+          <li class="four">
+            <h2></h2>
+            <span>疑似病例</span>
+            <p>较上日</p>
+          </li>
+          <li class="five">
+            <h2></h2>
+            <span>死亡病例</span>
+            <p>较上日</p>
+          </li>
+          <li class="six">
+            <h2></h2>
+            <span>累计治愈</span>
+            <p>较上日</p>
+          </li>
+        </ul>
+      </div>
+      <div class="chinaContent">
+        <ul class="area address">
+          <li>地区</li>
+          <li>现有确诊</li>
+          <li>累计确诊</li>
+          <li>死亡</li>
+          <li>治愈</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="content">
+      <div class="overseas">
+        <ul class="overArea ">
+          <li>地区</li>
+          <li>现有确诊</li>
+          <li>累计确诊</li>
+          <li>死亡</li>
+          <li>治愈</li>
+        </ul>
+      </div>
+      <div class="continent">
+        <div class="northAmerica">
+          <ul class="bmz">
+            <li>北美洲</li>
+          </ul>
+
+        </div>
+        <div class="southAmerica">
+          <ul class="nmz">
+            <li>南美洲</li>
+          </ul>
+        </div>
+
+        <div class="asia">
+          <ul class="yz">
+            <li>亚洲</li>
+          </ul>
+        </div>
+
+        <div class="europe">
+          <ul class="oz">
+            <li>欧洲</li>
+          </ul>
+        </div>
+
+        <div class="africa">
+          <ul class="fz">
+            <li>非洲</li>
+          </ul>
+        </div>
+
+        <div class="oceania">
+          <ul class="dyz">
+            <li>大洋洲</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="content">
+      <div class="global china">
+        <ul class="c-top global-top">
+          <li class="one">
+            <span class="span">累计确诊</span>
+            <h2></h2>
+            <p>较上日<span></span></p>
+          </li>
+          <li class="two">
+            <span class="span">累计死亡</span>
+            <h2></h2>
+            <p>较上日<span></span></p>
+          </li>
+          <li class="three">
+            <span class="span">累计治愈</span>
+            <h2></h2>
+            <p>较上日<span></span></p>
+          </li>
+
+        </ul>
+
+        <ul class="c-bottom global-top">
+
+          <li class="four">
+            <span class="span">美国确诊</span>
+            <h2></h2>
+            <p>较上日<span></span></p>
+          </li>
+          <li class="five">
+            <span class="span">巴西确诊</span>
+            <h2></h2>
+            <p>较上日<span></span></p>
+          </li>
+          <li class="six">
+            <span class="span">印度确诊</span>
+            <h2></h2>
+            <p>较上日<span></span></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let area = document.querySelector('.area');
+    let now = document.querySelector('.now');
+    let addUp = document.querySelector('.addUp');
+    let die = document.querySelector('.die');
+    let cure = document.querySelector('.cure');
+    let chinaContent = document.querySelector('.chinaContent');
+    //获取国内节点
+    let one = document.querySelector('.c-top .one h2')
+    let p1 = document.querySelector('.c-top .one p')
+
+    let two = document.querySelector('.c-top .two h2')
+    let p2 = document.querySelector('.c-top .two p')
+
+    let three = document.querySelector('.c-top .three h2')
+    let p3 = document.querySelector('.c-top .three p')
+
+    let four = document.querySelector('.c-bottom .four h2')
+    let p4 = document.querySelector('.c-bottom .four p')
+
+    let five = document.querySelector('.c-bottom .five h2')
+    let p5 = document.querySelector('.c-bottom .five p')
+
+    let six = document.querySelector('.c-bottom .six h2')
+    let p6 = document.querySelector('.c-bottom .six p')
+    //获取海外、大洲节点
+    let northAmerica = document.querySelector('.continent .northAmerica');
+    let southAmerica = document.querySelector('.continent .southAmerica');
+    let asia = document.querySelector('.continent .asia');
+    let europe = document.querySelector('.continent .europe');
+    let africa = document.querySelector('.continent .africa');
+    let oceania = document.querySelector('.continent .oceania');
+
+    let continentDiv = document.querySelectorAll('.continent div');
+
+    let bmz = document.querySelector('.bmz');
+    let nmz = document.querySelector('.nmz');
+    let yz = document.querySelector('.yz');
+    let oz = document.querySelector('.oz');
+    let fz = document.querySelector('.fz');
+    let dyz = document.querySelector('.dyz');
+
+
+    //获取全球节点
+    let gOne = document.querySelector('.global .one h2');
+    let gTwo = document.querySelector('.global .two h2');
+    let gThree = document.querySelector('.global .three h2');
+    let gFour = document.querySelector('.global .four h2');
+    let gFive = document.querySelector('.global .five h2');
+    let gSix = document.querySelector('.global .six h2');
+
+    let gp1 = document.querySelector('.global .one p span');
+    let gp2 = document.querySelector('.global .two p span');
+    let gp3 = document.querySelector('.global .three p span');
+    let gp4 = document.querySelector('.global .four p span');
+    let gp5 = document.querySelector('.global .five p span');
+    let gp6 = document.querySelector('.global .six p span');
+
+    //全球各个国家较上日
+    let AmericaToday
+    let AmericaYestarday
+    let BrazilToday
+    let BrazilYestarday
+    let IndiaToday
+    let IndiaYestarday
+
+
+
+    var li = document.querySelectorAll("#topUl li");
+    var text = document.querySelectorAll(".content");
+    for (var a = 0; a < li.length; a++) {
+      li[a].setAttribute("data-index", a);
+      li[a].onclick = function () {
+        for (var b = 0; b < li.length; b++) {
+          li[b].className = "";
+          text[b].style.display = "none";
+        }
+        this.className = "topover";
+        var index = this.getAttribute("data-index");
+        text[index].style.display = "block";
+      }
+    }
+
+
+
+    //promise封装ajax
+    class Http {
+
+      //get请求
+      get(url) {
+
+        return new Promise((resolved, rejected) => {
+
+          //创建ajax对象
+          let xhr = new XMLHttpRequest();
+
+          //监听ajax状态变化
+          xhr.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+              //凝固结果
+              resolved(this.responseText);
+            }
+
+          }
+
+          //建立服务器连接
+          xhr.open('GET', url, true);
+
+          //发起请求
+          xhr.send();
+
+        })
+
+      }
+    }
+
+    let http = new Http();
+
+    // 国内省市
+    http.get('http://api.tianapi.com/txapi/ncovcity/index?key=456e3dfbd0b904716ef5fdca65218834').then(result => {
+      result = JSON.parse(result);
+
+      result.newslist.forEach(element => {
+        // console.log(element)
+        let ul = document.createElement('ul');
+        let div = document.createElement('div');
+
+        let txt = `<li>${element.provinceName}</li>
+        <li>${element.currentConfirmedCount}</li>
+        <li>${element.confirmedCount}</li>
+        <li>${element.deadCount}</li>
+        <li>${element.curedCount}</li>`
+        ul.className = 'chinaInfo';
+        ul.innerHTML = txt;
+        div.appendChild(ul)
+        chinaContent.appendChild(div)
+
+        element.cities.forEach(element => {
+          let ul1 = document.createElement('ul')
+          // console.log(element);
+          let text = `<li>${element.cityName}</li>
+        <li>${element.currentConfirmedCount}</li>
+        <li>${element.confirmedCount}</li>
+        <li>${element.deadCount}</li>
+        <li>${element.curedCount}</li>`
+
+          ul1.innerHTML = text;
+          ul1.className = 'cityInfo';
+          div.appendChild(ul1)
+        })
+        // 每个div中的城市信息
+        let cityInfo = div.querySelectorAll('.cityInfo');
+        div.onclick = function () {//div绑定事件，点击相应的div中的城市信息展开
+
+          cityInfo.forEach(element => {
+            element.classList.toggle('cityBlock');
+          })
+        }
+      });
+
+      let chinaInfo = document.querySelectorAll('.chinaInfo')
+
+      // console.log(chinaInfo)
+    })
+
+
+    //全国跟全球
+    http.get('http://api.tianapi.com/txapi/ncov/index?key=456e3dfbd0b904716ef5fdca65218834').then(result => {
+      result = JSON.parse(result);
+      // console.log(result.newslist);
+      result.newslist.forEach(element => {
+        // console.log(element.desc.globalStatistics)
+        one.innerHTML = element.desc.confirmedCount;
+        one.style.color = 'rgb(133, 14, 14)'
+        two.innerHTML = element.desc.currentConfirmedCount;
+        two.style.color = 'red'
+        three.innerHTML = element.desc.seriousCount;
+        four.innerHTML = element.desc.suspectedCount;
+        four.style.color = 'orange'
+        five.innerHTML = element.desc.deadCount;
+        five.style.color = 'gray'
+        six.innerHTML = element.desc.curedCount;
+        six.style.color = 'green'
+
+        //全球
+        gOne.innerHTML = element.desc.globalStatistics.confirmedCount;
+        gOne.style.color = 'rgb(133, 14, 14)'
+        gTwo.innerHTML = element.desc.globalStatistics.deadCount;
+        gTwo.style.color = 'rgb(56, 55, 55)'
+        gTwo.style.marginLeft = '10px'
+        gThree.innerHTML = element.desc.globalStatistics.curedCount;
+        gThree.style.color = 'green'
+        gThree.style.marginLeft = '5px'
+
+        // gFour.innerHTML = element.desc.globalStatistics.curedCount;
+        // gFour.style.color = 'rgb(133, 14, 14)'
+
+        //全球较上日
+        element.desc.globalStatistics.confirmedIncr < 0 ? gp1.innerHTML += element.desc.globalStatistics.confirmedIncr : gp1.innerHTML += '+' + element.desc.globalStatistics.confirmedIncr;
+        element.desc.globalStatistics.deadIncr < 0 ? gp2.innerHTML += element.desc.globalStatistics.currentConfirmedIncr : gp2.innerHTML += '+' + element.desc.globalStatistics.currentConfirmedIncr;
+        element.desc.globalStatistics.curedIncr < 0 ? gp3.innerHTML += element.desc.globalStatistics.deadIncr : gp3.innerHTML += '+' + element.desc.globalStatistics.deadIncr;
+
+        //国内较上日
+        element.desc.confirmedIncr < 0 ? p1.innerHTML += element.desc.confirmedIncr : p1.innerHTML += '+' + element.desc.confirmedIncr;
+        element.desc.currentConfirmedIncr < 0 ? p2.innerHTML += element.desc.currentConfirmedIncr : p2.innerHTML += '+' + element.desc.currentConfirmedIncr;
+        element.desc.seriousIncr < 0 ? p3.innerHTML += element.desc.seriousIncr : p3.innerHTML += '+' + element.desc.seriousIncr;
+        element.desc.suspectedIncr < 0 ? p4.innerHTML += element.desc.suspectedIncr : p4.innerHTML += '+' + element.desc.suspectedIncr;
+        element.desc.deadIncr < 0 ? p5.innerHTML += element.desc.deadIncr : p5.innerHTML += '+' + element.desc.deadIncr;
+        element.desc.curedIncr < 0 ? p6.innerHTML += element.desc.curedIncr : p6.innerHTML += '+' + element.desc.curedIncr;
+      })
+
+    })
+
+     //全球模块中各个国家
+    //获取前一天日期
+    function global() {
+      var time = (new Date).getTime() - 24 * 60 * 60 * 1000;
+      var yesterday = new Date(time);
+      var month = yesterday.getMonth();
+      var day = yesterday.getDate();
+      yesterday = yesterday.getFullYear() + "-" + (yesterday.getMonth() > 9 ? (yesterday.getMonth() + 1) : "0" + (yesterday.getMonth() + 1)) + "-" + (yesterday.getDate() > 9 ? (yesterday.getDate()) : "0" + (yesterday.getDate()));
+
+      http.get('http://api.tianapi.com/txapi/ncovabroad/index?key=456e3dfbd0b904716ef5fdca65218834&date=' + yesterday).then(result => {
+        result = JSON.parse(result);
+        // console.log(result)
+        result.newslist.forEach(element => {
+
+          if (element.provinceName == '美国') {
+            AmericaYestarday = element.confirmedCount;
+            let res = AmericaToday - AmericaYestarday;
+            gFour.innerHTML = element.confirmedCount;
+            gFour.style.color = 'rgb(133, 14, 14)';
+            gFour.style.marginLeft = '5px'
+            res < 0 ? gp4.innerHTML += res : gp4.innerHTML += '+' + res;
+          }
+          if (element.provinceName == '巴西') {
+            BrazilYestarday = element.confirmedCount;
+            let res = BrazilToday - BrazilYestarday;
+            gFive.innerHTML = element.confirmedCount;
+            gFive.style.color = 'rgb(133, 14, 14)';
+            gFive.style.marginLeft = '5px'
+            res < 0 ? gp5.innerHTML += res : gp5.innerHTML += '+' + res;
+          }
+          if (element.provinceName == '印度') {
+            IndiaYestarday = element.confirmedCount;
+            let res = IndiaToday - IndiaYestarday;
+            gSix.innerHTML = element.confirmedCount;
+            gSix.style.color = 'rgb(133, 14, 14)';
+            gSix.style.marginLeft = '5px'
+            res < 0 ? gp6.innerHTML += res : gp6.innerHTML += '+' + res;
+          }
+
+        })
+        console.log("今天" + AmericaToday)
+        console.log("昨天" + AmericaYestarday)
+      })
+    }
+
+    //海外
+    http.get('http://api.tianapi.com/txapi/ncovabroad/index?key=456e3dfbd0b904716ef5fdca65218834').then(result => {
+      result = JSON.parse(result);
+
+      result.newslist.forEach(element => {
+        // console.log(element);
+        if (element.provinceName == '美国') {
+          AmericaToday = element.confirmedCount;
+        }
+        if (element.provinceName == '巴西') {
+          BrazilToday = element.confirmedCount;
+        }
+        if (element.provinceName == '印度') {
+          IndiaToday = element.confirmedCount;
+        }
+
+        let ul = document.createElement('ul');
+
+        let txt = `<li>${element.provinceName}</li>
+        <li>${element.currentConfirmedCount}</li>
+        <li>${element.confirmedCount}</li>
+        <li>${element.deadCount}</li>
+        <li>${element.curedCount}</li>`
+        ul.innerHTML = txt;
+        ul.className = 'overseasInfo'
+        if (element.continents == '北美洲') {
+          northAmerica.appendChild(ul)
+        } else if (element.continents == '南美洲') {
+          southAmerica.appendChild(ul)
+        } else if (element.continents == '亚洲') {
+          asia.appendChild(ul)
+        } else if (element.continents == '欧洲') {
+          europe.appendChild(ul)
+        } else if (element.continents == '非洲') {
+          africa.appendChild(ul)
+        } else if (element.continents == '大洋洲') {
+          oceania.appendChild(ul)
+        }
+      })
+
+      //添加点击事件
+      continentDiv.forEach(element => {
+        let overseasInfo = element.querySelectorAll('.overseasInfo')
+        element.onclick = function () {
+          overseasInfo.forEach(element => {
+            element.classList.toggle('overseasInfoBlock');
+          })
+        }
+      })
+
+      //大洋洲数据
+      function Oceania() {
+        let oceaniaInfo = oceania.querySelectorAll('.overseasInfo');
+        let sumOne = 0;
+        let sumTwo = 0;
+        let sumThree = 0;
+        let sumFour = 0;
+        oceaniaInfo.forEach(element => {
+          //大洋洲里面每一个国家相应的数据相加
+          let oneInfo = element.querySelector('li:nth-child(2)');
+          let twoInfo = element.querySelector('li:nth-child(3)');
+          let threeInfo = element.querySelector('li:nth-child(4)');
+          let fourInfo = element.querySelector('li:nth-child(5)');
+
+          sumOne += parseInt(oneInfo.innerHTML);
+          sumTwo += parseInt(twoInfo.innerHTML);
+          sumThree += parseInt(threeInfo.innerHTML);
+          sumFour += parseInt(fourInfo.innerHTML);
+
+        })
+        let ttt = `<li>${sumOne}</li>
+        <li>${sumTwo}</li>
+        <li>${sumThree}</li>
+        <li>${sumFour}</li>`
+
+        dyz.innerHTML += ttt
+      }
+
+      //北美洲数据
+      function NorthAmerica() {
+        let northAmericaInfo = northAmerica.querySelectorAll('.overseasInfo');
+        let sumOne = 0;
+        let sumTwo = 0;
+        let sumThree = 0;
+        let sumFour = 0;
+        northAmericaInfo.forEach(element => {
+          //北美洲里面每一个国家相应的数据相加
+          let oneInfo = element.querySelector('li:nth-child(2)');
+          let twoInfo = element.querySelector('li:nth-child(3)');
+          let threeInfo = element.querySelector('li:nth-child(4)');
+          let fourInfo = element.querySelector('li:nth-child(5)');
+
+          sumOne += parseInt(oneInfo.innerHTML);
+          sumTwo += parseInt(twoInfo.innerHTML);
+          sumThree += parseInt(threeInfo.innerHTML);
+          sumFour += parseInt(fourInfo.innerHTML);
+
+        })
+        let ttt = `<li>${sumOne}</li>
+        <li>${sumTwo}</li>
+        <li>${sumThree}</li>
+        <li>${sumFour}</li>`
+
+        bmz.innerHTML += ttt
+      }
+
+      // 南美洲数据
+      function SouthAmerica() {
+        let southAmericaInfo = southAmerica.querySelectorAll('.overseasInfo');
+        let sumOne = 0;
+        let sumTwo = 0;
+        let sumThree = 0;
+        let sumFour = 0;
+        southAmericaInfo.forEach(element => {
+          //南美洲里面每一个国家相应的数据相加
+          let oneInfo = element.querySelector('li:nth-child(2)');
+          let twoInfo = element.querySelector('li:nth-child(3)');
+          let threeInfo = element.querySelector('li:nth-child(4)');
+          let fourInfo = element.querySelector('li:nth-child(5)');
+
+          sumOne += parseInt(oneInfo.innerHTML);
+          sumTwo += parseInt(twoInfo.innerHTML);
+          sumThree += parseInt(threeInfo.innerHTML);
+          sumFour += parseInt(fourInfo.innerHTML);
+
+        })
+        let ttt = `<li>${sumOne}</li>
+        <li>${sumTwo}</li>
+        <li>${sumThree}</li>
+        <li>${sumFour}</li>`
+
+        nmz.innerHTML += ttt
+      }
+
+      //亚洲数据
+      function Asia() {
+        let asiaInfo = asia.querySelectorAll('.overseasInfo');
+        let sumOne = 0;
+        let sumTwo = 0;
+        let sumThree = 0;
+        let sumFour = 0;
+        asiaInfo.forEach(element => {
+          //亚洲里面每一个国家相应的数据相加
+          let oneInfo = element.querySelector('li:nth-child(2)');
+          let twoInfo = element.querySelector('li:nth-child(3)');
+          let threeInfo = element.querySelector('li:nth-child(4)');
+          let fourInfo = element.querySelector('li:nth-child(5)');
+
+          sumOne += parseInt(oneInfo.innerHTML);
+          sumTwo += parseInt(twoInfo.innerHTML);
+          sumThree += parseInt(threeInfo.innerHTML);
+          sumFour += parseInt(fourInfo.innerHTML);
+
+        })
+        let ttt = `<li>${sumOne}</li>
+        <li>${sumTwo}</li>
+        <li>${sumThree}</li>
+        <li>${sumFour}</li>`
+
+        yz.innerHTML += ttt
+      }
+
+      // 欧洲数据
+      function Europe() {
+        let europeInfo = europe.querySelectorAll('.overseasInfo');
+        let sumOne = 0;
+        let sumTwo = 0;
+        let sumThree = 0;
+        let sumFour = 0;
+        europeInfo.forEach(element => {
+          //欧洲里面每一个国家相应的数据相加
+          let oneInfo = element.querySelector('li:nth-child(2)');
+          let twoInfo = element.querySelector('li:nth-child(3)');
+          let threeInfo = element.querySelector('li:nth-child(4)');
+          let fourInfo = element.querySelector('li:nth-child(5)');
+
+          sumOne += parseInt(oneInfo.innerHTML);
+          sumTwo += parseInt(twoInfo.innerHTML);
+          sumThree += parseInt(threeInfo.innerHTML);
+          sumFour += parseInt(fourInfo.innerHTML);
+
+        })
+        let ttt = `<li>${sumOne}</li>
+        <li>${sumTwo}</li>
+        <li>${sumThree}</li>
+        <li>${sumFour}</li>`
+
+        oz.innerHTML += ttt
+      }
+
+      //非洲数据
+      function Africa() {
+        let africaInfo = africa.querySelectorAll('.overseasInfo');
+        let sumOne = 0;
+        let sumTwo = 0;
+        let sumThree = 0;
+        let sumFour = 0;
+        africaInfo.forEach(element => {
+          //大洋洲里面每一个国家相应的数据相加
+          let oneInfo = element.querySelector('li:nth-child(2)');
+          let twoInfo = element.querySelector('li:nth-child(3)');
+          let threeInfo = element.querySelector('li:nth-child(4)');
+          let fourInfo = element.querySelector('li:nth-child(5)');
+
+          sumOne += parseInt(oneInfo.innerHTML);
+          sumTwo += parseInt(twoInfo.innerHTML);
+          sumThree += parseInt(threeInfo.innerHTML);
+          sumFour += parseInt(fourInfo.innerHTML);
+
+        })
+        let ttt = `<li>${sumOne}</li>
+        <li>${sumTwo}</li>
+        <li>${sumThree}</li>
+        <li>${sumFour}</li>`
+
+        fz.innerHTML += ttt
+      }
+
+      NorthAmerica();
+      SouthAmerica();
+      Asia();
+      Europe();
+      Africa();
+      Oceania();
+      global()
+    })
+
+
+
+  </script>
+</body>
+
+</html>
