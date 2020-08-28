@@ -710,7 +710,6 @@
         result = JSON.parse(result);
         // console.log(result)
         result.newslist.forEach(element => {
-
           if (element.provinceName == '美国') {
             AmericaYestarday = element.confirmedCount;
             let res = AmericaToday - AmericaYestarday;
