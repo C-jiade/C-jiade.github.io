@@ -603,7 +603,7 @@
     let http = new Http();
 
     // 国内省市
-    http.get('http://api.tianapi.com/txapi/ncovcity/index?key=456e3dfbd0b904716ef5fdca65218834').then(result => {
+    http.get('https://api.tianapi.com/txapi/ncovcity/index?key=456e3dfbd0b904716ef5fdca65218834').then(result => {
       result = JSON.parse(result);
 
       result.newslist.forEach(element => {
